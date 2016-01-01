@@ -1,6 +1,7 @@
 class AdminsController < ApplicationController
   before_action :logged_in_admin, only: [:new, :dashboard, :users, :doctors]
   #before_action :correct_admin, only: [:new, :dashboard, :users, :doctors]
+
   def new
   	@admin = Admin.new
   end
@@ -30,19 +31,31 @@ class AdminsController < ApplicationController
   	@doctors = Doctor.all
   end
 
-  def appointments
+  def user_appointments
     @user = User.find(params[:user_id])
-    @appointments = @user.appointments.all
+    @user_appointments = @user.appointments.all
   end
 
   def contacts
     @contacts = Contact.all
   end
 
-  def all_appointments
-    @all_appointments = Appointment.all
+  def new_doctor
+    @doc = Doctor.new
   end
 
+  def create_doctor
+    @doc = Doctor.new(doctors_params)
+    if @doc.save
+      flash[:success] = "New doctor's account created!."
+      redirect_to ohoac_administration_dashboard_path
+    else
+      render 'new_doctor'
+    end
+  end
+
+
+  
 
   private 
   def admin_params
@@ -50,6 +63,12 @@ class AdminsController < ApplicationController
                                   :email, 
                                   :password, 
                                   :password_confirmation)
+  end
+
+  def doctors_params
+    params.require(:doctor).permit(:doctors_name, 
+                                   :password,
+                                   :password_confirmation)
   end
 
   #comfirm if the current logged in user

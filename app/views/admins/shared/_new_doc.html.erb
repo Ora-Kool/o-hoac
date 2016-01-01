@@ -1,0 +1,10 @@
+<%= form_for(@doc, url: ohoac_administration_dashboard_doctor_new_path) do |f| %>
+<%= render 'users/shared/error_messages', object: @doc %>
+<%= f.label :doctors_name %>
+<%= f.text_field :doctors_name, placeholder: 'doctors name' %>
+<%= f.password_field :password, placeholder: 'password' %>
+<%= f.password_field :password_confirmation, placeholder: 'password confirmation' %>
+
+<%= f.submit 'Create', class: 'button large-12' %>
+
+<%end%>

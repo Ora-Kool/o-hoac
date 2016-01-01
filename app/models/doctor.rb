@@ -16,7 +16,7 @@ class Doctor < ApplicationRecord
                                     types: [:voip, :mobile],
                                     message: 'is invalid, just your number'
   },
-            uniqueness: true
+            uniqueness: true, allow_nil: true
 
 
   has_secure_password

@@ -11,9 +11,11 @@ Rails.application.routes.draw do
   get '/ohoac/administration/dashboard', to: 'admins#dashboard'
 
   get '/ohoac/administration/dashboard/users/all', to: 'admins#users'
-  get '/ohoac/administration/dashboard/users/:user_id/appointments', to: 'admins#appointments', as: '/hoac/administration/users/appointments'
+  get '/ohoac/administration/dashboard/users/:user_id/user_appointments', to: 'admins#user_appointments', as: '/ohoac/administration/users/appointments'
   get '/ohoac/administration/dashboard/doctors/all', to: 'admins#doctors'
   get '/ohoac/administration/dashboard/messages_board/mails/all', to: 'admins#contacts'
+  get '/ohoac/administration/dashboard/doctor/new', to: 'admins#new_doctor'
+  post '/ohoac/administration/dashboard/doctor/new', to: 'admins#create_doctor'
 
 
 

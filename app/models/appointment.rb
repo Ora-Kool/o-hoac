@@ -19,5 +19,7 @@ class Appointment < ApplicationRecord
     end
   end
 
-
+  def all_appointments
+    self.Appointment.all
+  end
 end

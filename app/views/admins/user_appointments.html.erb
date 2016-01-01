@@ -15,7 +15,7 @@
 		</div>
 	<div class="large-12 columns" style="margin-bottom: 50px">
 		<h3 style="text-align: center">list of <%= "#{@user.first_name.downcase} #{@user.last_name}"%> appointments</h3>
-		<% if !@appointments.empty? %>
+		<% if !@user_appointments.empty? %>
 		<table>
 		<tr>
 			<th>Appointment Reason</th>
@@ -23,7 +23,7 @@
 			<th>Doctor's Name</th>
 			<th>Department</th>
 		</tr>
-<% @appointments.each do |appointment| %>
+<% @user_appointments.each do |appointment| %>
 		<tr>
 			<div class="row">
 				<div class="large-12 columns">
