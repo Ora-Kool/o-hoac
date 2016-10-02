@@ -12,9 +12,14 @@
   </head>
 
   <body>
+    <%= render 'page/shared/header'%>
+
 
     <%= yield %>
 
+
+    
+    <%= render 'page/shared/footer' %>
   <script>
     $(function(){ $(document).foundation(); });
   </script>
