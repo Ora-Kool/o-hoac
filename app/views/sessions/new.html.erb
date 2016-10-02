@@ -1,0 +1,14 @@
+<%provide(:title, "Log in")%>
+<div class="row">
+  <div class="large-6 large-offset-3 columns">
+    <div style="text-align: center">
+      <h1>Log in</h1>
+    </div>
+    <%= render "sessions/shared/loginForm" %>
+    <div>
+      <p>
+        New user? <%= link_to "Sign up now!", signup_path %>
+      </p>
+    </div>
+  </div>
+</div>

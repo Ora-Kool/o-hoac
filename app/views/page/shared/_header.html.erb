@@ -23,28 +23,7 @@
   <div class="top-bar-right">
 
     <ul class="menu" data-responsive-menu="drilldown medium-dropdown">
-      <li><a href="#">Log in</a></li>
-
-      <li><%= link_to "Sign up", signup_path%></li>
-
-
-      <li class="has-submenu">
-
-        <a href="#">Account</a>
-
-        <ul class="submenu menu vertical" data-submenu>
-
-          <li><a href="#">Settings</a></li>
-
-          <li><a href="#">Stuffs</a></li>
-
-          <li><a href="#">Logout</a></li>
-
-        </ul>
-
-      </li>
-
-
+      <%= render 'page/shared/links'%>
     </ul>
 
   </div>

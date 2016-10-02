@@ -1,0 +1,31 @@
+<li><%= link_to "Home", root_path %></li>
+<% if logged_in_user?%>
+
+    <li class="has-submenu">
+
+      <%= link_to 'Profile', '#' %>
+
+      <ul class="submenu menu vertical" data-submenu>
+        <li><%= link_to 'My Account', current_user %></li>
+        <li><a href="#">Settings</a></li>
+
+        <li><a href="#">Stuffs</a></li>
+
+        <li><%= link_to 'Logout', logout_path, method: :delete %></li>
+
+      </ul>
+
+    </li>
+
+  <%else%>
+
+    <li><%= link_to "Log in", login_path %></li>
+
+    <li><%= link_to "Sign up", signup_path%></li>
+
+<%end%>
+
+
+
+
+
