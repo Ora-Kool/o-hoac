@@ -30,3 +30,24 @@ hr.style-eight:after {
   background: white;
 
 }
+hr.profile {
+  padding: 0;
+  border: none;
+  border-top: thin double $body-color;
+  color: #4e4e4e;
+  text-align: center;
+}
+hr.profile:after {
+  content: "§";
+  display: inline-block;
+  position: relative;
+  top: -1.6em;
+  font-size: .6em;
+  padding: 0 0.4em;
+  -webkit-border-radius: 40px;
+  -moz-border-radius: 40px;
+  -ms-border-radius: 40px;
+  border-radius: 40px;
+  background: white;
+
+}

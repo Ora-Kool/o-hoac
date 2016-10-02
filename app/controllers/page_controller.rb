@@ -10,4 +10,6 @@ class PageController < ApplicationController
 
   def faqs
   end
+
+
 end

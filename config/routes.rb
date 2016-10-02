@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/terms', to: 'page#terms'
   get '/faqs', to: 'page#faqs'
 
+
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
 
