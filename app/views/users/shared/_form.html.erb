@@ -12,5 +12,5 @@
     <%= f.label :password_confirmation, "Confirmation" %>
     <%= f.password_field :password_confirmation %>
 
-    <%= f.submit "Create my account", class: "button columns" %>
+    <%= f.submit yield(:button_text), class: "button columns" %>
 <% end %>

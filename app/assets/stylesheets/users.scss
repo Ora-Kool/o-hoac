@@ -1,3 +1,32 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$body-color: #E1E1E1;
+p{
+  span{
+    border-left: 2px solid #8a8a8a;
+    padding: 5px 0 5px 0;
+    margin: 0 8px 0 4px;
+  }
+}
+hr.style-eight {
+  padding: 0;
+  border: none;
+  border-top: thin double $body-color;
+  color: #4e4e4e;
+  text-align: center;
+}
+hr.style-eight:after {
+  content: "or";
+  display: inline-block;
+  position: relative;
+  top: -0.9em;
+  font-size: 1.5em;
+  padding: 0 0.4em;
+  -webkit-border-radius: 40px;
+  -moz-border-radius: 40px;
+  -ms-border-radius: 40px;
+  border-radius: 40px;
+  background: white;
+
+}
