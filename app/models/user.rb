@@ -1,7 +1,13 @@
 class User < ApplicationRecord
   attr_accessor :remember_token
   before_save { self.email = email.downcase }
+  validates :mobile_phone, phone: { possible: true,
+                                    allow_blank: true,
+                                    types: [:voip, :mobile],
+                                    message: 'is invalid. eg => 665425367' },
+                                    uniqueness: true
   validates :name, presence: true, length: { maximum: 50 }
+
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: { maximum: 255 },
@@ -38,5 +44,8 @@ class User < ApplicationRecord
   def forget
     update_attribute(:remember_digest, nil)
   end
+
+
+
 
 end

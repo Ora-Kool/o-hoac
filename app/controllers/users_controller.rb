@@ -44,7 +44,7 @@ class UsersController < ApplicationController
 
   #to be updated later
   def user_update
-    params.require(:user).permit(:name)
+    params.require(:user).permit(:name, :first_name, :last_name, :mobile_phone)
   end
 
   #comfirm if the current logged in user
