@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'appointments/new'
+
+  get 'doctors/new'
+
   root 'page#home'
 
   get '/about', to: 'page#about'
