@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="663b0ff4-4fe1-4720-b6b5-dc96c5ff0021" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/user.rb" afterPath="$PROJECT_DIR$/app/models/user.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/page/shared/_links.html.erb" afterPath="$PROJECT_DIR$/app/views/page/shared/_links.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/users/show.html.erb" afterPath="$PROJECT_DIR$/app/views/users/show.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
     </list>
     <ignored path="o-hoac.iws" />
@@ -40,33 +36,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="show.html.erb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/users/show.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="11" column="31" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
-              <folding>
-                <element signature="n#style#0;n#h4#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#hr#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#a#0;n#li#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_links.html.erb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/page/shared/_links.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="user.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/user.rb">
           <provider selected="true" editor-type-id="text-editor">
@@ -77,7 +46,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="doctor.rb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="doctor.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/doctor.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="15">
@@ -104,14 +73,24 @@
               </nodes>
               <notes />
               <edges />
-              <settings layout="Hierarchic Group" zoom="0.7630252100840336" x="304.5374449339207" y="304.5374449339207" />
+              <settings layout="Hierarchic Group" zoom="0.7630252100840336" x="304.5374449339207" y="584.5374449339207" />
               <SelectedNodes>
-                <node>996aeb15-93ad-4c31-98d9-a071debdaa21.TABLE:users</node>
+                <node>996aeb15-93ad-4c31-98d9-a071debdaa21.TABLE:appointments</node>
               </SelectedNodes>
               <Categories>
                 <Category>Key columns</Category>
                 <Category>Columns</Category>
               </Categories>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="schema.rb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/db/schema.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="21" column="66" selection-start-line="21" selection-start-column="66" selection-end-line="21" selection-end-column="66" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -159,11 +138,11 @@
                   <point x="0.0" y="0.0" />
                   <point x="0.0" y="0.0" />
                 </edge>
-                <edge source="Department" target="ApplicationRecord">
+                <edge source="Appointment" target="ApplicationRecord">
                   <point x="0.0" y="0.0" />
                   <point x="0.0" y="0.0" />
                 </edge>
-                <edge source="Appointment" target="ApplicationRecord">
+                <edge source="Department" target="ApplicationRecord">
                   <point x="0.0" y="0.0" />
                   <point x="0.0" y="0.0" />
                 </edge>
@@ -173,7 +152,9 @@
                 </edge>
               </edges>
               <settings layout="Hierarchic Group" zoom="1.0" x="55.0" y="177.0" />
-              <SelectedNodes />
+              <SelectedNodes>
+                <node>User</node>
+              </SelectedNodes>
               <Categories>
                 <Category>Association fields</Category>
               </Categories>
@@ -772,16 +753,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1475359016970</updated>
-      <workItem from="1475377192851" duration="38360000" />
+      <workItem from="1475377192851" duration="39229000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38360000" />
+    <option name="totallyTimeSpent" value="39229000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="73" y="23" width="1207" height="777" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18540773" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -791,7 +772,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45850915" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.45850915" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1093,14 +1074,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/schema.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="45" column="26" selection-start-line="45" selection-start-column="26" selection-end-line="45" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/users/shared/_profile_update.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -1164,33 +1137,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="uml://DATABASE/996aeb15-93ad-4c31-98d9-a071debdaa21">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>DATABASE</ID>
-          <OriginalElement>996aeb15-93ad-4c31-98d9-a071debdaa21</OriginalElement>
-          <nodes>
-            <node x="0.0" y="0.0">996aeb15-93ad-4c31-98d9-a071debdaa21.TABLE:users</node>
-            <node x="398.0" y="504.0">996aeb15-93ad-4c31-98d9-a071debdaa21.TABLE:schema_migrations</node>
-            <node x="0.0" y="504.0">996aeb15-93ad-4c31-98d9-a071debdaa21.TABLE:ar_internal_metadata</node>
-            <node x="0.0" y="296.0">996aeb15-93ad-4c31-98d9-a071debdaa21.TABLE:appointments</node>
-            <node x="260.0" y="296.0">996aeb15-93ad-4c31-98d9-a071debdaa21.TABLE:departments</node>
-            <node x="212.0" y="504.0">996aeb15-93ad-4c31-98d9-a071debdaa21.TABLE:sqlite_sequence</node>
-            <node x="340.0" y="0.0">996aeb15-93ad-4c31-98d9-a071debdaa21.TABLE:doctors</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="0.7630252100840336" x="304.5374449339207" y="304.5374449339207" />
-          <SelectedNodes>
-            <node>996aeb15-93ad-4c31-98d9-a071debdaa21.TABLE:users</node>
-          </SelectedNodes>
-          <Categories>
-            <Category>Key columns</Category>
-            <Category>Columns</Category>
-          </Categories>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/department.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -1219,6 +1165,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/doctor.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="17" />
           <folding />
         </state>
       </provider>
@@ -1265,11 +1219,11 @@
               <point x="0.0" y="0.0" />
               <point x="0.0" y="0.0" />
             </edge>
-            <edge source="Department" target="ApplicationRecord">
+            <edge source="Appointment" target="ApplicationRecord">
               <point x="0.0" y="0.0" />
               <point x="0.0" y="0.0" />
             </edge>
-            <edge source="Appointment" target="ApplicationRecord">
+            <edge source="Department" target="ApplicationRecord">
               <point x="0.0" y="0.0" />
               <point x="0.0" y="0.0" />
             </edge>
@@ -1279,17 +1233,54 @@
             </edge>
           </edges>
           <settings layout="Hierarchic Group" zoom="1.0" x="55.0" y="177.0" />
-          <SelectedNodes />
+          <SelectedNodes>
+            <node>User</node>
+          </SelectedNodes>
           <Categories>
             <Category>Association fields</Category>
           </Categories>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/doctor.rb">
+    <entry file="file://$PROJECT_DIR$/db/migrate/20161003010952_add_doctor_ref_to_appointments.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="17" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://DATABASE/996aeb15-93ad-4c31-98d9-a071debdaa21">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>DATABASE</ID>
+          <OriginalElement>996aeb15-93ad-4c31-98d9-a071debdaa21</OriginalElement>
+          <nodes>
+            <node x="0.0" y="0.0">996aeb15-93ad-4c31-98d9-a071debdaa21.TABLE:users</node>
+            <node x="398.0" y="504.0">996aeb15-93ad-4c31-98d9-a071debdaa21.TABLE:schema_migrations</node>
+            <node x="0.0" y="504.0">996aeb15-93ad-4c31-98d9-a071debdaa21.TABLE:ar_internal_metadata</node>
+            <node x="0.0" y="296.0">996aeb15-93ad-4c31-98d9-a071debdaa21.TABLE:appointments</node>
+            <node x="260.0" y="296.0">996aeb15-93ad-4c31-98d9-a071debdaa21.TABLE:departments</node>
+            <node x="212.0" y="504.0">996aeb15-93ad-4c31-98d9-a071debdaa21.TABLE:sqlite_sequence</node>
+            <node x="340.0" y="0.0">996aeb15-93ad-4c31-98d9-a071debdaa21.TABLE:doctors</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="0.7630252100840336" x="304.5374449339207" y="584.5374449339207" />
+          <SelectedNodes>
+            <node>996aeb15-93ad-4c31-98d9-a071debdaa21.TABLE:appointments</node>
+          </SelectedNodes>
+          <Categories>
+            <Category>Key columns</Category>
+            <Category>Columns</Category>
+          </Categories>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/schema.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="21" column="66" selection-start-line="21" selection-start-column="66" selection-end-line="21" selection-end-column="66" />
           <folding />
         </state>
       </provider>
