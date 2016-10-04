@@ -10,16 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161003150207) do
+ActiveRecord::Schema.define(version: 20161004021758) do
 
   create_table "appointments", force: :cascade do |t|
     t.text     "reason"
     t.date     "apt_date"
     t.string   "apt_time"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
     t.integer  "doctor_id"
     t.integer  "user_id"
+    t.string   "appointment_token"
     t.index ["doctor_id"], name: "index_appointments_on_doctor_id"
     t.index ["user_id"], name: "index_appointments_on_user_id"
   end
@@ -32,12 +33,14 @@ ActiveRecord::Schema.define(version: 20161003150207) do
 
   create_table "doctors", force: :cascade do |t|
     t.string   "doctors_name"
-    t.string   "speciality"
-    t.text     "professional_details"
-    t.string   "work_experience"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.string   "speciality",           default: "default"
+    t.text     "professional_details", default: "default"
+    t.string   "work_experience",      default: "0"
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
     t.integer  "department_id"
+    t.string   "password_digest"
+    t.string   "remember_digest"
     t.index ["department_id"], name: "index_doctors_on_department_id"
   end
 

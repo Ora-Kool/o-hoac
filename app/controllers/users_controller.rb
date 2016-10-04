@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :logged_in, only: [:edit, :update]
-  before_action :correct_user, only: [:edit, :update]
+  before_action :logged_in, only: [:edit, :update, :show]
+  before_action :correct_user, only: [:edit, :update, :show]
   def show
     @user = User.find(params[:id])
     @users = User.all
@@ -39,12 +39,21 @@ class UsersController < ApplicationController
   private
 
   def user_param
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name,
+                                 :mobile_phone,
+                                 :email,
+                                 :password,
+                                 :password_confirmation)
   end
 
   #to be updated later
   def user_update
-    params.require(:user).permit(:name, :first_name, :last_name, :mobile_phone)
+    params.require(:user).permit(:name,
+                                 :first_name,
+                                 :last_name,
+                                 :mobile_phone,
+                                 :password,
+                                 password_confirmation)
   end
 
   #comfirm if the current logged in user
@@ -59,6 +68,6 @@ class UsersController < ApplicationController
   #confirming the correct user of the accessing page
   def correct_user
     @user = User.find(params[:id])
-    redirect_to(root_path) unless current_user?(@user)
+    redirect_to(login_path) unless current_user?(@user)
   end
 end

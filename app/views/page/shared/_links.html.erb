@@ -4,7 +4,7 @@
 
     <li class="has-submenu">
 
-      <%= link_to 'Profile', '#' %>
+      <%= link_to 'Profile', current_user %>
 
       <ul class="submenu menu vertical" data-submenu>
         <li><%= link_to 'My Account', current_user %></li>
@@ -13,6 +13,32 @@
         <li><a href="#">Stuffs</a></li>
 
         <li><%= link_to 'Logout', logout_path, method: :delete %></li>
+
+      </ul>
+
+    </li>
+    <%elsif logged_doctor_in?%>
+    <li class="has-submenu">
+    <%= link_to "Blood Banks", "#", class: 'in-active'%>
+      <ul class="submenu menu vertical" data-submenu>
+
+        <li><%= link_to "Which Hospital?", "#", class: 'in-active'%></li>
+        <li><%= link_to "Blood Donors", "#", class: 'in-active'%></li>
+      </ul>
+    </li>
+
+
+    <li class="has-submenu">
+
+      <%= link_to 'Profile', current_doctor %>
+
+      <ul class="submenu menu vertical" data-submenu>
+        <li><%= link_to 'My Account', current_doctor %></li>
+        <li><%= link_to 'Settings', edit_doctor_path(current_doctor)%></li>
+
+        <li><a href="#">Stuffs</a></li>
+
+        <li><%= link_to 'Logout', signout_path, method: :delete %></li>
 
       </ul>
 

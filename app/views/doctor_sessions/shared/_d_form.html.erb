@@ -1,0 +1,15 @@
+<%= form_for(:session, url: signin_path) do |f| %>
+
+    <%= f.label :doctors_name %>
+    <%= f.text_field :doctors_name %>
+
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+
+    <%= f.label :remember_me, class: "checkbox inline" do %>
+        <%= f.check_box :remember_me %>
+        <span>Remember me</span>
+    <%end%>
+
+    <%= f.submit "Log in", class: "button columns" %>
+<% end %>

@@ -1,0 +1,20 @@
+<%= form_for(@doctor ) do |f| %>
+    <%= render 'users/shared/error_messages', object: @doctor%>
+
+    <%= f.label "Doctor's name" %>
+    <%= f.text_field :doctors_name%>
+
+    <%= f.label :speciality %>
+    <%= f.text_field :speciality%>
+
+    <%= f.label :professional_details %>
+    <%= f.text_area :professional_details, class: 'profdet'%>
+
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+
+    <%= f.label :password_confirmation, "Confirmation" %>
+    <%= f.password_field :password_confirmation %>
+
+    <%= f.submit yield(:button_text), class: "button columns" %>
+<% end %>

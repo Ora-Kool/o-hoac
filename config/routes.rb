@@ -1,9 +1,4 @@
 Rails.application.routes.draw do
-  #get 'appointments/new'
-
-  #get 'doctors/new'
-  #get 'doctors/new'
-
   root 'page#home'
 
   get '/about', to: 'page#about'
@@ -11,17 +6,19 @@ Rails.application.routes.draw do
   get '/faqs', to: 'page#faqs'
 
 
+  #user has the ability to sign up an account
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
 
+  #uri for user session
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
-
-
   delete '/logout', to: 'sessions#destroy'
 
- # get '/users/:id/doctors/:id/appointments', to: 'appointments#new', as: :appointment
-  #post '/users/:id/doctors/:id/appointments', to: 'appointments#create'
+  #uri for doctors session to sign in only
+  get '/signin', to: 'doctor_sessions#new'
+  post '/signin', to: 'doctor_sessions#create'
+  delete '/signout', to: 'doctor_sessions#destroy'
 
   resources :users, except: [:new, :create] do
     resources :doctors, except: [:index, :create, :new, :show, :update, :destroy] do

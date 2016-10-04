@@ -4,11 +4,13 @@ class User < ApplicationRecord
   has_many :appointments
   before_save { self.email = email.downcase }
   validates :mobile_phone, phone: { possible: true,
-                                    allow_blank: true,
+                                    allow_blank: false,
                                     types: [:voip, :mobile],
-                                    message: 'is invalid. eg => 665425367' },
+                                    message: 'is invalid, just your number'
+                                    },
                                     uniqueness: true
   validates :name, presence: true, length: { maximum: 50 }
+
 
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

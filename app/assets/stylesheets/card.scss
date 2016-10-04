@@ -22,6 +22,8 @@ html,body { // for demo only
 
   border-radius: 2px;
 
+  margin-bottom: 20px;
+
   .title {
 
     line-height: 3rem;
@@ -29,6 +31,8 @@ html,body { // for demo only
     font-size: 1.5rem;
 
     font-weight: 300;
+
+
 
   }
 
@@ -46,6 +50,9 @@ html,body { // for demo only
 
     margin: 0;
 
+  }
+  h5 {
+    margin: 0;
   }
 
   .action {
@@ -84,7 +91,7 @@ html,body { // for demo only
 
       padding: 1.3rem;
 
-      color: #fff;
+      color: #0a0a0a;
 
     }
 
