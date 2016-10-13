@@ -1,7 +1,8 @@
 class User < ApplicationRecord
   attr_accessor :remember_token
   has_many :doctors
-  has_many :appointments
+  has_many :appointments, dependent: :destroy
+  belongs_to :gender
   before_save { self.email = email.downcase }
   validates :mobile_phone, phone: { possible: true,
                                     allow_blank: false,

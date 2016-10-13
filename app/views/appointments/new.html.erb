@@ -1,2 +1,23 @@
-<h1>Appointments#new</h1>
-<p>Find me in app/views/appointments/new.html.erb</p>
+<%provide(:title, 'Schedule Appointment')%>
+<%=provide(:button_text, 'Proceed')%>
+
+<div class="row">
+  <div class="large-4 columns">
+    <h2 style="color: #d50000; text-decoration: underline">Note!!</h2>
+    <li>No appointments will be approved is appointment date is less than present date</li>
+    <p>warning!</p>
+    <p>warning!</p>
+    <p>warning!</p>
+    <p>warning!</p>
+    <p>warning!</p>
+    <p>warning!</p>
+    <p>warning!</p>
+  </div>
+  <div class="large-6 columns">
+    <div style="text-align: center">
+      <h2>Appointment Form</h2>
+    </div>
+    <%= render 'appointments/aForm'%>
+  </div>
+</div>
+

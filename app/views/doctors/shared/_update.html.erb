@@ -1,7 +1,7 @@
 <%= form_for(@doctor ) do |f| %>
     <%= render 'users/shared/error_messages', object: @doctor%>
 
-    <%= f.label "Doctor's name" %>
+    <%= f.label "Your name" %>
     <%= f.text_field :doctors_name%>
 
     <%= f.label :speciality %>

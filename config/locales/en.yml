@@ -20,4 +20,16 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    attributes:
+      appointment:
+        apt_date: "Appointment date"
+        appt_time: "Appointment time"
+        reason: "Appointment reason"
+    errors:
+      models:
+        user:
+          attributes:
+            apt_date:
+              blank: "cannot be blank or less then current date"
+

@@ -1,227 +1,28 @@
-<%provide(:title, @doctor.doctors_name.capitalize) %>
+<%provide(:title, "Dashboard") %>
+
 <div class="row">
-  <div class="large-3 columns"
-       style="
-       background-color: #ffffff;
-           margin-top: 10px;
-           -webkit-border-radius: 4px;
-           -moz-border-radius: 4px;
-           border-radius: 4px;
-           margin-bottom: 100px;
-       ">
-    <h4 style="padding-top: 5px;">Dr. <%= @doctor.doctors_name.capitalize%>
-      <hr class="profile">
-    </h4>
-    <div class="row">
-      <div class="large-12 small-12 medium-12 columns end">
-        <div class="card">
-
-          <div class="image">
-
-            <!--<img src="http://images.freeimages.com/images/previews/cf6/bird-1394216.jpg">-->
-            <%= image_tag('doctor.svg.png', alt: 'image')%>
-
-          </div>
-
-          <div class="content">
-            <p style="margin-bottom: -10px"><strong>Infos</strong></p>
-          <hr>
-            <p>
-              Department: <a href="#"><%=@doctor.department.department_name%></a>
-            </p>
-
-            <p>
-              <% if @doctor.speciality == "default"%>
-                  Speciality: <a href="#">edit</a>
-                  <%else%>
-                  Speciality: <strong><%=@doctor.speciality%></strong>
-                  <%end%>
-
-            </p>
-            <p>
-              <% if @doctor.work_experience == "0"%>
-                  Work Exp: <a href="#">edit</a>
-              <%else%>
-                  Work Exp: <strong><%=@doctor.work_experience%></strong>
-              <%end%>
-
-            </p>
-
-
-
-
-          </div>
-
-          <!--<div class="action">
-
-            <a href='#'>Read more...</a>
-
-          </div>-->
-
-        </div>
-      </div>
-      <!--<div class="large-6 small-8 columns">
-        <p>mobile number</p>
-
-        <p>0000000000</p>
-        <p>0000000000</p>
-
-      </div>-->
-      <hr style="margin: 10px; padding-top: 20px">
+  <div id="profileDetails">
+    <div class="large-3 columns"
+         style="
+         background-color: #ffffff;
+             margin-top: 0px;
+             -webkit-border-radius: 4px;
+             -moz-border-radius: 4px;
+             border-radius: 4px;
+             margin-bottom: 100px;
+         ">
+      <%= render 'doctors/shared/profile' %>
     </div>
-    <div class="row">
-      <div class="large-12 columns" style="margin-top: 40px;">
-        <h5>Menu</h5>
-        <ul class="accordion" data-accordion data-allow-all-closed="true" data-accordion>
-          <li class="accordion-item" data-accordion-item>
-            <a href="#" class="accordion-title">My Calendar</a>
-            <div class="accordion-content" data-tab-content>
-              Display doctor's Calendar here
-            </div>
-          </li>
-          <li class="accordion-item" data-accordion-item>
-            <a href="#" class="accordion-title">Checked Appointments</a>
-            <div class="accordion-content" data-tab-content>
-              Display a list of checked appointments here<br>
-              <a href="#">Stuffs</a>
-            </div>
-          </li>
-          <!--<li class="accordion-item" data-accordion-item>
-            <a href="#" class="accordion-title">Accordion 1</a>
-            <div class="accordion-content" data-tab-content>
-              I would start in the open state, due to using the `is-active` state class.
-            </div>
-          </li>-->
-        </ul>
-      </div>
-    </div>
+
   </div>
 
-  <% if @appointments.empty?%>
-
-      <div class="large-8 columns"
-           style="
-           margin-top: 10px;
-               margin-bottom: 50px;
-           ">
-      <h2 style="padding: 0; margin: 0">
-        No new appointments
-        <hr>
-      </h2>
-        <% for i in 1..1 %>
-        <div class="card">
-          <div class="image">
-            <%= image_tag('test.svg', alt: 'patient image')%>
-            <!--<span class="title">
-              Hospital
-            </span>-->
-          </div>
-          <div class="content">
-            <h5>
-              Hospital Name
-              <hr>
-            </h5>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-              proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-          </div>
-        </div>
-        <%end%>
-        <p style="text-align: center"><a href="#"> &lt; </a>0..2<a href="#"> &gt;</a> </p>
-      </div>
-
-  <%else%>
-      <div class="large-8 columns"
-           style="
-           margin-top: 10px;
-               margin-bottom: 50px
-           ">
-
-        <% @appointments.each do |appointment|%>
-            <div class="row" style="margin-bottom: 5px;" id="container">
-
-              <div class="large-6 columns end">
-
-                <div class="card">
-
-                  <div class="image">
-
-                    <!--<img src="http://images.freeimages.com/images/previews/cf6/bird-1394216.jpg">-->
-                    <%= image_tag('test.svg', alt: 'patient image')%>
-
-                    <span class="title">
-                  Dr. <%= appointment.user.first_namer.capitalize%>
-
-                </span>
-
-                  </div>
-
-                  <div class="content">
-
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-                  </div>
-
-                  <div class="action">
-
-                    <a href='#'></a>
-
-                  </div>
-
-                </div>
-
-              </div>
-
-              <div class="large-6 columns end">
-
-                <div class="card">
-
-                  <div class="content">
-
-                    <span class="title">Appointment Reason</span>
-
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-                  </div>
-
-                  <div class="action">
-
-                    <a href="#">Check</a>
-                    <!--<a href="#">Offline</a>-->
+  <%= content_tag :div, id: 'new_appointments', data: { url: doctor_path(@doctor) } do %>
+      <%= render "doctors/shared/appointment" %>
+  <% end %>
 
 
-                  </div>
-
-                </div>
-
-              </div>
-
-            </div>
-        <%end%>
-
-
-      </div>
-      <%end%>
-
-  </div>
 </div>
+
+
+
+

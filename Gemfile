@@ -17,6 +17,13 @@ gem 'coffee-rails', '~> 4.2'
 
 gem 'phonelib', '~> 0.6.5'
 
+gem 'will_paginate', '~> 3.1', '>= 3.1.3'
+gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.1'
+
+gem 'jquery-ui-rails'
+
+gem 'paperclip', '~> 5.1'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks

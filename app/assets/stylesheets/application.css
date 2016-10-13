@@ -12,12 +12,11 @@
  *
  *= require_tree .
  *= require_self
+ *= require jquery-ui
  *= require foundation_and_overrides
 
  */
 body{
     height: auto;
-    /*
     background-color: rgba(232, 232, 232, 0.64);
-    */
 }

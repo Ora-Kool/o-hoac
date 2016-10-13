@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161004021758) do
+ActiveRecord::Schema.define(version: 20161009124743) do
 
   create_table "appointments", force: :cascade do |t|
     t.text     "reason"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20161004021758) do
     t.integer  "doctor_id"
     t.integer  "user_id"
     t.string   "appointment_token"
+    t.string   "appt_time"
     t.index ["doctor_id"], name: "index_appointments_on_doctor_id"
     t.index ["user_id"], name: "index_appointments_on_user_id"
   end
@@ -33,15 +34,25 @@ ActiveRecord::Schema.define(version: 20161004021758) do
 
   create_table "doctors", force: :cascade do |t|
     t.string   "doctors_name"
-    t.string   "speciality",           default: "default"
-    t.text     "professional_details", default: "default"
-    t.string   "work_experience",      default: "0"
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
+    t.string   "speciality"
+    t.text     "professional_details"
+    t.string   "work_experience"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.integer  "department_id"
     t.string   "password_digest"
     t.string   "remember_digest"
+    t.string   "working_hours"
+    t.string   "working_days"
+    t.string   "current_hospital"
+    t.boolean  "status",               default: true
     t.index ["department_id"], name: "index_doctors_on_department_id"
+  end
+
+  create_table "genders", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -54,7 +65,11 @@ ActiveRecord::Schema.define(version: 20161004021758) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "mobile_phone",    limit: 50
+    t.string   "current_city"
+    t.date     "dob"
+    t.integer  "gender_id"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["gender_id"], name: "index_users_on_gender_id"
   end
 
 end

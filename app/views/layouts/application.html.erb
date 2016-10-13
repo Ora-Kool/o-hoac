@@ -12,15 +12,14 @@
   </head>
 
   <body>
-    <!--<%= render 'page/shared/header'%>-->
-    <!--<%= render 'layouts/shared/alerts'%>-->
+    <%= render 'page/shared/header'%>
+    <%= render 'layouts/shared/alerts'%>
 
     <%= yield %>
 
 
     
-
-
+    <%= render 'page/shared/footer' %>
   <script>
     $(function(){ $(document).foundation(); });
 

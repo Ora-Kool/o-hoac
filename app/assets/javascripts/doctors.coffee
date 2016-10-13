@@ -1,3 +1,9 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+@ApptPoller =
+  poll: ->
+    setInterval @request, 5000
+  request: ->
+    $.get($('#new_appointments').data('url'))
+
+jQuery ->
+  if $('#new_appointments').length > 0
+    ApptPoller.poll()

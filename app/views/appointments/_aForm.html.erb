@@ -1,0 +1,57 @@
+<%= form_for([@user, @doctor, @appointment], url: user_doctor_appointments_path )  do |f| %>
+        <%= render 'users/shared/error_messages', object: f.object %>
+
+        <%= f.label "Date Of Appointment"%>
+        <div class="row">
+          <div class="large-5 medium-5 small-5 columns">
+            <%= f.text_field :apt_date, placeholder: "mm-dd-yyyy" %>
+          </div>
+
+        </div>
+
+
+        <!--Appointment time fields here-->
+
+        <%= f.label 'Appointment time'%>
+        <div class="row">
+          <div class="large-5 medium-5 small-5 columns">
+            <%= f.select :appt_time,
+                         "<option value='07:00 AM'>7:00 AM</>
+                         <option value='08:00 AM'>8:00 AM</>
+                         <option value='09:00 AM'>9:00 AM</>
+                         <option value='10:00 AM'>10:00 AM</>
+                         <option value='11:00 AM'>11:00 AM</>
+                         <option value='12:00 AM'>12:00 AM</>
+                         <option value='1:00 PM'>1:00 PM</>
+                         <option value='2:00 PM'>2:00 PM</>
+                         <option value='3:00 PM'>3:00 PM</>
+                         <option value='4:00 PM'>4:00 PM</>
+                         <option value='5:00 PM'>5:00 PM</>
+                         <option value='6:00 PM'>6:00 PM</>
+                         <option value='7:00 AM'>7:00 AM</>".html_safe,
+                         :prompt => "Select time" %>
+          </div>
+        </div>
+
+
+
+        <%=f.label "Appointment Reasons"%>
+        <%= f.text_area :reason%>
+
+        <label>to see:</label>
+        <input type="text" value="<%= @doctor.department.department_name %>", disabled>
+
+
+
+
+
+
+
+
+        <%= f.hidden_field :user_id, value: @user.id%>
+        <%= f.hidden_field :doctor_id, value: @doctor.id%>
+
+
+        <%= f.submit yield(:button_text), class: "button columns"%>
+    <%end%>
+

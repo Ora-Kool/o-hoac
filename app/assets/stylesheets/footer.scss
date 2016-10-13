@@ -75,7 +75,7 @@ $text-color: #fff;
 
     .columns:nth-child(n+2) {
 
-      border-left: 1px solid scale-color($text-color, $lightness: -30%);
+      border-left: 1px solid scale-color($text-color, $lightness: -10%);
 
       min-height: 280px;
 
@@ -94,6 +94,10 @@ $text-color: #fff;
   li {
 
     margin-top: .5em;
+
+    a:hover{
+      color: #8a8a8a;
+    }
 
   }
 

@@ -1,0 +1,117 @@
+<% if !@appointments.empty?%>
+
+    <div class="large-9 medium-12 small-12 columns"
+         style="
+         margin-top: 10px;
+             margin-bottom: 50px
+         ">
+
+      <div class="row" style="margin-bottom: 5px;" id="prof">
+        <% @appointments.each do |appointment|%>
+
+
+            <div class="large-6 columns end" style="margin-bottom: 5px;">
+
+              <div class="card">
+
+                <div class="image">
+
+
+                  <%= image_tag('doctor1.png', alt: 'patient image')%>
+
+                  <span class="title">
+                          <%= appointment.reason%>
+                      </span>
+
+                </div>
+
+
+                <div class="action">
+
+                  <!--<a></a>-->
+                  <p>Patient Name: <strong><%= appointment.user.name.capitalize%></strong></p>
+                  <p>Contact: <strong><%= appointment.user.mobile_phone %></strong></p>
+                  <p>Appointment Date: <strong><%= appointment.apt_date.strftime("%B %d, %Y") %></strong></p>
+
+                  <p>Appointment Time: <strong><%= appointment.appt_time %></strong></p>
+                  <% if appointment.user.gender.name == "M" %>
+                      <p>Gender: <strong>Male</strong></p>
+                  <%else%>
+                      <p>Gender: <strong>Female</strong></p>
+                  <%end%>
+
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+        <%end%>
+
+</div>
+    <%else%>
+  <div class="row">
+    <div class="large-8 columns" style="text-align: center;
+        color: #8a8a8a;
+        font-family: 'Lucida Grande', Arial, Helvetica, Sans-Serif;
+        font-size: 20px;
+        font-weight: 100">
+      <p>APPOINTMENT LIST IS EMPTY </p>
+    </div>
+    <div class="large-8 columns">
+      <div class="row">
+        <div class="large-5 columns" style="margin-bottom: 10px;">
+          <div class="row">
+            <div class="large-12 columns">
+              <h4>
+                Welcome
+              <hr style="margin: 0">
+              </h4>
+              <p>
+                Thanks for creating an account with us.<br>
+                We hope you enjoy the new world of online appointments
+              </p>
+            </div>
+            <div class="large-12 columns" style="margin-top: 10px">
+              <h4>
+                Help
+              <hr style="margin: 0">
+              </h4>
+              <p>
+                First before using this service, do take the time<br>
+                to update your informations. To do that go to<br>
+                <strong>Profile > Settings</strong> and fill in your<br>
+                details, doing so patients will be able to know your <br>
+                <strong>working hours, working days, your field of expertise.</strong>
+              </p>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="large-5 columns">
+          <h1>
+            Note
+          <hr style="margin: 0">
+          </h1>
+          <p>
+            If you don't update you personal information<br>
+            patients won't be able to discover you.
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+
+  </div>
+
+
+<%end%>
+
+<!--<div style="text-align: center">
+   will_paginate @appointments, renderer: BootstrapPagination::Rails
+</div>-->
+</div>

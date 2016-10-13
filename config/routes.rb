@@ -20,9 +20,15 @@ Rails.application.routes.draw do
   post '/signin', to: 'doctor_sessions#create'
   delete '/signout', to: 'doctor_sessions#destroy'
 
+  get '/refresh_appointments', to: 'doctors#refresh_appointments'
+
+
+  #appointment
+
   resources :users, except: [:new, :create] do
     resources :doctors, except: [:index, :create, :new, :show, :update, :destroy] do
       resources :appointments
+
     end
 
   end
