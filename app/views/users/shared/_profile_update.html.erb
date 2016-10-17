@@ -1,29 +1,51 @@
-<%= form_for(@user) do |f| %>
+<%= form_for @user, html: {multipart: true} do |f| %>
     <%= render 'users/shared/error_messages', object: @user %>
 
-    <%= f.label :name %>
+    <div class="row">
+      <div class="large-7 medium-7 small-8 columns">
+        <%= f.label "Profile picture" %>
+        <%= f.file_field :profile_photo, id: 'photoselect'%>
+      </div>
+      <div class="large-5 medium-5 small-4 columns">
+        <div id="target">
+            <%= image_tag('doctor.svg.png')%>
+        </div>
+      </div>
+    </div>
+
+
+    <%= f.label 'user name' %>
     <%= f.text_field :name%>
 
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name%>
+    <div class="row">
+        <div class="large-6 columns">
+            <%= f.label :first_name %>
+            <%= f.text_field :first_name%>
+        </div>
+        <div class="large-6 columns">
+            <%= f.label :last_name %>
+            <%= f.text_field :last_name%>
+        </div>
+    </div>
 
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name%>
+     <%= f.label :gender %>
+     <%= f.collection_select :gender_id, Gender.all, :id, :name, prompt: "Select gender"%>
+
+      <%= f.label :email %>
+    <%= f.email_field :email%>
 
     <%= f.label :mobile_phone %>
     <%= f.phone_field :mobile_phone %>
 
-    <%= f.label :gender %>
-    <%= f.collection_select :gender_id, Gender.all, :id, :name %>
+   
 
     <%= f.label :current_city %>
-    <%= f.text_field :current_city %>
+    <%= f.collection_select :city_id, City.all, :id, :city_name, prompt: 'Select city' %>
 
     <%= f.label "Date Of Birth" %>
-    <%= f.date_field :dob, placeholder: "dd/mm/yyyy" %>
+    <%= f.date_field :dob, placeholder: "yyyy-mm-dd" %>
 
-    <%= f.label :email %>
-    <%= f.email_field :email%>
+  
 
     <%= f.label :password %>
     <%= f.password_field :password %>

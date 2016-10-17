@@ -1,13 +1,17 @@
 <%= form_for(@user, url: signup_path) do |f| %>
     <%= render 'users/shared/error_messages', object: @user %>
-    <%= f.label :name %>
+
+    <%= f.label 'user name' %>
     <%= f.text_field :name %>
 
     <%= f.label :gender %>
-    <%= f.select :gender_id, @genders, prompt: "Select gender" %>
+    <%= f.collection_select :gender_id, Gender.all, :id, :name, prompt: 'Select gender' %>
 
     <%= f.label "Mobile number" %>
     <%= f.text_field :mobile_phone %>
+
+    <%= f.label :current_city %>
+    <%= f.collection_select :city_id,  City.all, :id, :city_name, prompt: 'Select your current city'%>
 
     <%= f.label :email %>
     <%= f.email_field :email %>

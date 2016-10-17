@@ -33,7 +33,7 @@
 
            <p>
 
-             Appointments: <strong>0</strong>
+             Appointment(s): <strong><%= Appointment.count %></strong>
 
            </p>
 
@@ -42,12 +42,16 @@
         </div><!--end card class here-->
 
         </div>
+    <hr >
   </div>
 
   <div class="large-12 columns">
     <h5>Menu</h5>
-    <a href='#'>Settings</a><br>
-    <a href='#'>Logout</a><br>
+    <ul style="list-style-type: none">
+      <li><%=link_to "Settings", edit_doctor_path(current_doctor) %></li>
+      <li><%= link_to "Logout", signout_path, method: :delete%></li>
+
+    </ul>
 
     <!--<ul class="accordion" data-accordion data-allow-all-closed="true" data-accordion>
 

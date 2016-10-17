@@ -17,5 +17,13 @@
         </library>
       </libraries>
     </data-source>
+    <data-source source="LOCAL" name="Rails hopapp: test" uuid="10945dc7-3636-4c72-a7ad-55f4d0b5efcc">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>$PROJECT_DIR$/config/database.yml</remarks>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/db/test.sqlite3</jdbc-url>
+    </data-source>
   </component>
 </project>

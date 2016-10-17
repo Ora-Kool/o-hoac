@@ -1,5 +1,5 @@
 <%provide(:title, @user.name.capitalize) %>
-<div class="row">
+<div class="row row-top">
   <div class="large-3 columns"
        style="
        background-color: #ffffff;
@@ -19,7 +19,11 @@
           <div class="image">
 
             <!--<img src="http://images.freeimages.com/images/previews/cf6/bird-1394216.jpg">-->
-            <%= image_tag('doctor.svg.png', alt: 'image')%>
+            <% if current_user.gender.name.downcase == "male" %>
+              <%= image_tag('male.png', alt: @user.name)%>
+            <%else%>
+              <%= image_tag('female.svg.png', alt: 'image')%>
+            <%end %>
 
 
           </div>
@@ -42,13 +46,7 @@
 
         </div>
       </div>
-      <!--<div class="large-6 small-8 columns">
-        <p>mobile number</p>
 
-        <p>0000000000</p>
-        <p>0000000000</p>
-
-      </div>-->
       <hr style="margin: 10px; padding-top: 20px">
     </div>
     <div class="row">
@@ -58,7 +56,7 @@
           <li class="accordion-item" data-accordion-item>
             <a href="#" class="accordion-title">My Appointments <span class="badge" style="margin-left: 20px"> 1</span></a>
             <div class="accordion-content" data-tab-content>
-              <%if @appointments.empty?%>
+              <%if @appointments.count == 0%>
 
                 <p>empty</p>
               <%else%>
@@ -83,22 +81,23 @@
 
 
 
-  <div class="large-8 columns" id="container"
+  <div class="large-9 columns" id="container"
        style="
            margin-top: 10px;
-           margin-bottom: 10px
+           margin-bottom: 10px;
        ">
+    <h3 class="current-department"><%= params[:department] %></h3>
       <% if @doctors.count == 0 %>
         <%= render 'users/shared/no_doctors' %>
         <%else%>
         <div class="availabeD">
           <p>Available Doctors</p>
         </div>
-
+        <div class="row" style="margin-bottom: 5px;" id="container">
         <% @doctors.each do |doctor|%>
-            <div class="row" style="margin-bottom: 5px;" id="container">
 
-              <div class="large-5 small-12 medium-6 columns end">
+
+              <div class="large-6 small-12 medium-6 columns end">
 
                 <div class="card">
 
@@ -108,8 +107,7 @@
                     <%= image_tag('doctor1.png', alt: "image")%>
 
                     <span class="title">
-                  Dr. <%= doctor.doctors_name.capitalize%>
-
+                  Dr. <%= "#{doctor.first_name.capitalize} #{doctor.last_name}"%>
                     </span>
 
                   </div>
@@ -120,15 +118,16 @@
                     </p>
 
                     <p>
-                      Speciality: <strong><%= doctor.speciality%></strong>
+                      Current City: <strong><%= doctor.city.city_name%></strong>
                     </p>
 
                     <p>
-                      Experience: <strong><%= doctor.work_experience %></strong>
+                      Department: <strong><%= doctor.department.department_name%></strong>
                     </p>
-                    <p>
+
+                    <!--<p>
                       Working Days: <strong><%= doctor.working_days %></strong>
-                    </p>
+                    </p>-->
 
                     <p>
                       Working Hours: <strong><%= doctor.working_hours%></strong>
@@ -146,7 +145,7 @@
 
               </div>
     <!-- profession section-->
-              <div class="medium-7 columns end">
+              <div class="large-6 medium-7 columns end">
 
                 <div class="card">
 
@@ -164,7 +163,7 @@
                     <%if doctor.status%>
                     <!--<a href='#'>Online</a>-->
                         <%= link_to 'Schedule',
-                                    new_user_doctor_appointment_path(@user, doctor)%>
+                                    schedule_appointment_path(@user, doctor, doctor.department.id)%>
 
                     <%else%>
                     <a href='#'>Offline</a>
@@ -175,8 +174,9 @@
 
               </div>
 
-            </div>
+
         <%end%>
+        </div>
         <div style="text-align: center">
           <%= will_paginate @doctors, renderer: BootstrapPagination::Rails %>
         </div>

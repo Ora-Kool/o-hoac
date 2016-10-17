@@ -1,18 +1,25 @@
 .success{
-  margin-top: 5px;
-  height: 50px;
   text-align: center;
   border-radius: 4px;
+  position: relative;
+  z-index: 2;
+  //background-color: #9ccee2;
+  //background-color: inherit;
+  top: 0;
+  margin-bottom: -2.2rem;
 }
 .success > p{
   padding-top: 10px;
-  color: #004d40;
+  color: #EFEFEF;
+
 }
 .danger{
-  margin-top: 5px;
-  height: 50px;
   text-align: center;
   border-radius: 4px;
+  position: relative;
+  margin-bottom: -2.2rem;
+  z-index: 2;
+  top: 0;
 }
 
 .danger > p{

@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :logged_in, only: [:edit, :update, :show]
   before_action :correct_user, only: [:edit, :update, :show]
+
   def show
     if params[:department].blank?
       @user = User.find(params[:id])
@@ -18,6 +19,7 @@ class UsersController < ApplicationController
   def new
     @user = User.new
     @genders = Gender.all.map{ |gender| [gender.name, gender.id] }
+    @cities = City.all.map{ |city| [city.city_name, city.id]}
   end
 
   def create
@@ -26,7 +28,8 @@ class UsersController < ApplicationController
       #login this user when credentials are valid
       log_in_user(@user)
       flash[:success] = "Welcome to the O-H-O"
-      redirect_to(edit_user_path(@user))
+      #redirect_to(edit_user_path(@user))
+      redirect_to(@user)
       else
       render 'new'
     end
@@ -53,6 +56,7 @@ class UsersController < ApplicationController
   def user_param
     params.require(:user).permit(:name,
                                  :gender_id,
+                                 :city_id,
                                  :mobile_phone,
                                  :email,
                                  :password,
@@ -61,12 +65,13 @@ class UsersController < ApplicationController
 
   #to be updated later
   def user_update
-    params.require(:user).permit(:name,
+    params.require(:user).permit(:profile_photo,
+                                 :name,
                                  :first_name,
                                  :last_name,
                                  :gender_id,
                                  :mobile_phone,
-                                 :current_city,
+                                 :city_id,
                                  :dob,
                                  :password,
                                  :password_confirmation)

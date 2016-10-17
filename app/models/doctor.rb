@@ -2,9 +2,20 @@ class Doctor < ApplicationRecord
   has_many :users
   belongs_to :department
   has_many :appointments
+  belongs_to :city
 
   attr_accessor :remember_token
   before_save { self.doctors_name = doctors_name.downcase }
+  before_save do
+    self.working_hours.gsub!(/[\[\]\"]/, " ") if attribute_present?("working_hours")
+  end
+
+  validates :phone_number, phone: { possible: true,
+                                    allow_blank: false,
+                                    types: [:voip, :mobile],
+                                    message: 'is invalid, just your number'
+  },
+            uniqueness: true
 
 
   has_secure_password

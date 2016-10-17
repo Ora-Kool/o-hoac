@@ -21,19 +21,20 @@ $menu-background: #2980b9;
 .top-bar {
 
   background: $menu-background;
-
-
-
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1;
+  padding: 0;
   ul {
 
     background: $menu-background;
 
 
-
     li {
 
       background: $menu-background;
-
+      padding-top: 2px;
 
 
       a {
@@ -86,7 +87,7 @@ $menu-background: #2980b9;
 
     li:not(:last-child) {
 
-      border-right: 1px solid #4e4e4e;
+      border-right: 0px solid #4e4e4e;
 
     }
 
@@ -124,4 +125,12 @@ $menu-background: #2980b9;
 
   border-color: transparent #fff transparent transparent;
 
+}
+
+.row-top{
+  margin: 50px auto 0;
+
+}
+.selected {
+  font-weight: bold;
 }

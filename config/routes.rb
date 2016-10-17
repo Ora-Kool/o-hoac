@@ -24,15 +24,18 @@ Rails.application.routes.draw do
 
 
   #appointment
+  get '/users/:user_id/doctors/:doctor_id/appointments/new',
+      constraints: { the_id: /[a-z0-9]{6}\-[a-z0-9]{6}/ },
+      to: "appointments#new", as: 'schedule_appointment'
 
-  resources :users, except: [:new, :create] do
-    resources :doctors, except: [:index, :create, :new, :show, :update, :destroy] do
-      resources :appointments
+  resources :users, except: [:new, :create, :index] do
+    resources :doctors, except: [:index, :create, :edit, :new, :show, :update, :destroy] do
+      resources :appointments, except: [:new]
 
     end
 
   end
-  resources :doctors
+  resources :doctors, except: [:index]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

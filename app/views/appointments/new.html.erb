@@ -1,19 +1,20 @@
 <%provide(:title, 'Schedule Appointment')%>
 <%=provide(:button_text, 'Proceed')%>
 
-<div class="row">
+<div class="row row-top">
   <div class="large-4 columns">
-    <h2 style="color: #d50000; text-decoration: underline">Note!!</h2>
-    <li>No appointments will be approved is appointment date is less than present date</li>
-    <p>warning!</p>
-    <p>warning!</p>
-    <p>warning!</p>
-    <p>warning!</p>
-    <p>warning!</p>
-    <p>warning!</p>
-    <p>warning!</p>
+    <h2 style="color: #d50000; text-decoration: underline">NOTE!!</h2>
+    <ol>
+      <li>No appointment will be approved if appointment date is less than <strong><%= Date.today.strftime("%B %d, %Y")%></strong>.</li>
+      <li>Appointment token <%= appointment_token%></li>
+    </ol>
+
   </div>
-  <div class="large-6 columns">
+  <div class="large-6 columns" style="background: #F7F7F7;
+      margin: 10px 10px;
+      -webkit-border-radius: 4px;
+      -moz-border-radius: 4px;
+      border-radius: 4px;">
     <div style="text-align: center">
       <h2>Appointment Form</h2>
     </div>

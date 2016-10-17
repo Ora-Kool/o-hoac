@@ -1,20 +1,17 @@
 <%= form_for([@user, @doctor, @appointment], url: user_doctor_appointments_path )  do |f| %>
         <%= render 'users/shared/error_messages', object: f.object %>
 
-        <%= f.label "Date Of Appointment"%>
+
         <div class="row">
+
           <div class="large-5 medium-5 small-5 columns">
-            <%= f.text_field :apt_date, placeholder: "mm-dd-yyyy" %>
+            <%= f.label "Appointment date"%>
+            <%= f.text_field :apt_date, placeholder: "yyyy-mm-dd", id: 'appointment_apt_date' %>
           </div>
 
-        </div>
 
-
-        <!--Appointment time fields here-->
-
-        <%= f.label 'Appointment time'%>
-        <div class="row">
           <div class="large-5 medium-5 small-5 columns">
+            <%= f.label 'Appointment time'%>
             <%= f.select :appt_time,
                          "<option value='07:00 AM'>7:00 AM</>
                          <option value='08:00 AM'>8:00 AM</>
@@ -29,29 +26,41 @@
                          <option value='5:00 PM'>5:00 PM</>
                          <option value='6:00 PM'>6:00 PM</>
                          <option value='7:00 AM'>7:00 AM</>".html_safe,
-                         :prompt => "Select time" %>
+                         :prompt => "Select appointment time" %>
           </div>
         </div>
 
 
+        <!--Appointment time fields here-->
 
-        <%=f.label "Appointment Reasons"%>
-        <%= f.text_area :reason%>
 
-        <label>to see:</label>
+        <div class="row">
+
+        </div>
+
+
+
+        <%=f.label "Appointment Reason"%>
+        <%= f.text_area :reason, size: '10x5', placeholder: "less than 50 words"%>
+
+        <%= f.label "to see:" %>
         <input type="text" value="<%= @doctor.department.department_name %>", disabled>
-
-
-
-
-
 
 
 
         <%= f.hidden_field :user_id, value: @user.id%>
         <%= f.hidden_field :doctor_id, value: @doctor.id%>
+        <%= f.hidden_field :appointment_token, value: appointment_token%>
 
+        <div class="row">
+            <div class="large-7 columns">
+                <%= f.submit yield(:button_text), class: "button columns"%>
+            </div>
+            <div class="large-5 columns">
+                <%= link_to "Cancel", current_user, class: 'button alert columns' %>
+            </div>
+        </div>
 
-        <%= f.submit yield(:button_text), class: "button columns"%>
+        
     <%end%>
 

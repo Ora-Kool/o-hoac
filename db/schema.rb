@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161009124743) do
+ActiveRecord::Schema.define(version: 20161016155351) do
 
   create_table "appointments", force: :cascade do |t|
     t.text     "reason"
@@ -26,6 +26,12 @@ ActiveRecord::Schema.define(version: 20161009124743) do
     t.index ["user_id"], name: "index_appointments_on_user_id"
   end
 
+  create_table "cities", force: :cascade do |t|
+    t.string   "city_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "departments", force: :cascade do |t|
     t.string   "department_name"
     t.datetime "created_at",      null: false
@@ -37,15 +43,25 @@ ActiveRecord::Schema.define(version: 20161009124743) do
     t.string   "speciality"
     t.text     "professional_details"
     t.string   "work_experience"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
     t.integer  "department_id"
     t.string   "password_digest"
     t.string   "remember_digest"
     t.string   "working_hours"
     t.string   "working_days"
     t.string   "current_hospital"
-    t.boolean  "status",               default: true
+    t.boolean  "status",                     default: true
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "phone_number"
+    t.string   "profile_photo_file_name"
+    t.string   "profile_photo_content_type"
+    t.integer  "profile_photo_file_size"
+    t.datetime "profile_photo_updated_at"
+    t.string   "gender"
+    t.integer  "city_id"
+    t.index ["city_id"], name: "index_doctors_on_city_id"
     t.index ["department_id"], name: "index_doctors_on_department_id"
   end
 
@@ -58,16 +74,21 @@ ActiveRecord::Schema.define(version: 20161009124743) do
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
     t.string   "password_digest"
     t.string   "remember_digest"
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "mobile_phone",    limit: 50
-    t.string   "current_city"
+    t.string   "mobile_phone",               limit: 50
     t.date     "dob"
     t.integer  "gender_id"
+    t.string   "profile_photo_file_name"
+    t.string   "profile_photo_content_type"
+    t.integer  "profile_photo_file_size"
+    t.datetime "profile_photo_updated_at"
+    t.integer  "city_id"
+    t.index ["city_id"], name: "index_users_on_city_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["gender_id"], name: "index_users_on_gender_id"
   end

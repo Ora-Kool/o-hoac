@@ -1,20 +1,82 @@
 <%= form_for(@doctor ) do |f| %>
     <%= render 'users/shared/error_messages', object: @doctor%>
 
-    <%= f.label "Your name" %>
+    <%= f.label "user name  *(is used to log you in)" %>
     <%= f.text_field :doctors_name%>
+
+    <div class="row">
+      <div class="large-6 columns">
+        <%= f.label :first_name %>
+        <%= f.text_field :first_name%>
+      </div>
+      <div class="large-6 columns">
+        <%= f.label :last_name %>
+        <%= f.text_field :last_name%>
+      </div>
+    </div>
+
+    <%= f.label :gender %>
+    <%= f.collection_select :gender, Gender.all, :id, :name , prompt: "Select gender"%>
+
+    <%= f.label :phone_number %>
+    <%= f.text_field :phone_number%>
+
+    <%= f.label 'City'%>
+    <%= f.collection_select :city_id, City.all, :id, :city_name, prompt: "Select your city"%>
+
+    <%= f.label :current_hospital %>
+    <%= f.text_field :current_hospital%>
 
     <%= f.label :speciality %>
     <%= f.text_field :speciality%>
 
+    <%= f.label :working_hours %>
+    <%= check_box_tag 'doctor[working_hours][]', '7:00 - 8:00 AM', checked('7:00 - 8:00 AM'), id: '7:00 - 8:00 AM'%>
+    <%= label_tag "7:00 - 8:00 AM", "7:00 - 8:00 AM"%>
+
+    <%= check_box_tag 'doctor[working_hours][]', '8:00 - 9:00 AM', checked('8:00 - 9:00 AM'), id: '8:00 - 9:00 AM'%>
+    <%= label_tag "8:00 - 9:00 AM", "8:00 - 9:00 AM" %>
+
+    <%= check_box_tag 'doctor[working_hours][]', '9:00 - 10:00 AM', checked('9:00 - 10:00 AM'), id: '9:00 - 10:00 AM'%>
+    <%= label_tag "9:00 - 10:00 AM", "9:00 - 10:00 AM" %><br />
+
+    <%= check_box_tag 'doctor[working_hours][]', '10:00 - 11:00 AM', checked('10:00 - 11:00 AM'), id: '10:00 - 11:00 AM'%>
+    <%= label_tag "10:00 - 11:00 AM", "10:00 - 11:00 AM" %>
+
+    <%= check_box_tag 'doctor[working_hours][]', '11:00 - 12:00 PM', checked('11:00 - 12:00 PM'), id: '11:00 - 12:00 PM'%>
+    <%= label_tag "11:00 - 12:00 PM", "11:00 - 12:00 AM" %>
+
+    <%= check_box_tag 'doctor[working_hours][]', '12:00 - 1:00 PM', checked('12:00 - 1:00 PM'), id: '12:00 - 1:00 PM'%>
+    <%= label_tag "12:00 - 1:00 PM", "12:00 - 1:00 PM" %><br />
+
+    <%= check_box_tag 'doctor[working_hours][]', '1:00 - 2:00 PM', checked('1:00 - 2:00 PM'), id: '1:00 - 2:00 PM'%>
+    <%= label_tag "1:00 - 2:00 AM", "1:00 - 2:00 PM" %>
+
+    <%= check_box_tag 'doctor[working_hours][]', '2:00 - 3:00 PM', checked('2:00 - 3:00 PM'), id: '2:00 - 3:00 PM'%>
+    <%= label_tag "2:00 - 3:00 AM", "2:00 - 3:00 PM" %>
+
+    <%= check_box_tag 'doctor[working_hours][]', '3:00 - 4:00 PM', checked('3:00 - 4:00 PM'), id: '3:00 - 4:00 PM'%>
+    <%= label_tag "3:00 - 4:00 PM", "3:00 - 4:00 PM" %>
+
+
+
+
     <%= f.label :professional_details %>
     <%= f.text_area :professional_details, class: 'profdet'%>
 
-    <%= f.label :password %>
-    <%= f.password_field :password %>
+    <div class="row">
+      <div class="large-6 columns">
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+      </div>
+      <div class="large-6 columns">
+        <%= f.label :password_confirmation, "Confirmation" %>
+        <%= f.password_field :password_confirmation %>
 
-    <%= f.label :password_confirmation, "Confirmation" %>
-    <%= f.password_field :password_confirmation %>
+      </div>
+    </div>
+
+
 
     <%= f.submit yield(:button_text), class: "button columns" %>
 <% end %>

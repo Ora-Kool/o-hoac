@@ -1,6 +1,6 @@
 <%provide(:title, "Dashboard") %>
 
-<div class="row">
+<div class="row row-top">
   <div id="profileDetails">
     <div class="large-3 columns"
          style="
@@ -16,13 +16,12 @@
 
   </div>
 
+    
+
+
   <%= content_tag :div, id: 'new_appointments', data: { url: doctor_path(@doctor) } do %>
       <%= render "doctors/shared/appointment" %>
   <% end %>
 
 
 </div>
-
-
-
-

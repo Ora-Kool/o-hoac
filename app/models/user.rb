@@ -3,13 +3,16 @@ class User < ApplicationRecord
   has_many :doctors
   has_many :appointments, dependent: :destroy
   belongs_to :gender
+  belongs_to :city
   before_save { self.email = email.downcase }
   validates :mobile_phone, phone: { possible: true,
                                     allow_blank: false,
                                     types: [:voip, :mobile],
-                                    message: 'is invalid, just your number'
+                                    #message: 'is invalid, just your number'
                                     },
-                                    uniqueness: true
+                                    uniqueness: true,
+                                    length: { maximum: 9 }
+                                    
   validates :name, presence: true, length: { maximum: 50 }
 
 
@@ -18,6 +21,9 @@ class User < ApplicationRecord
   validates :email, presence: true, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
+
+  has_attached_file :profile_photo, styles: {large: "600x600", medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
+  validates_attachment_content_type :profile_photo, content_type: /\Aimage\/.*\z/
 
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true

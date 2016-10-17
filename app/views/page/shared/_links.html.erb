@@ -1,19 +1,21 @@
 <%if logged_doctor_in? %>
-    <li><%= link_to "Welcome Dr #{current_doctor.doctors_name.capitalize}"%></li>
+    <li><%= link_to "Welcome Dr #{current_doctor.doctors_name.capitalize}", '#', class: 'default'%></li>
     <%end%>
 <li><%= link_to "Home", root_path %></li>
 
 <% if logged_user_in?%>
     <li class="has-submenu">
 
-      <%= link_to "Filter by department" %>
+      <%= link_to 'Filter by department' , class: 'default' %>
 
       <ul class="submenu menu vertical" data-submenu>
         <% Department.all.each do |department| %>
-            <li><%= link_to department.department_name, user_path(department: department.department_name) %></li>
+            <li><%= link_to department.department_name, user_path(department: department.department_name, id: current_user) %></li>
         <% end %>
 
       </ul>
+
+    </li>
     <li class="has-submenu">
 
       <%= link_to "#{current_user.name.capitalize}", current_user %>
@@ -31,7 +33,7 @@
     </li>
     <%elsif logged_doctor_in?%>
     <li class="has-submenu">
-    <%= link_to "Blood Banks", "#", class: 'in-active'%>
+    <%= link_to "Blood Banks", "#", class: 'inactive'%>
       <ul class="submenu menu vertical" data-submenu>
 
         <li><%= link_to "Which Hospital?", "#", class: 'in-active'%></li>
@@ -42,10 +44,10 @@
 
     <li class="has-submenu">
 
-      <%= link_to "Profile"%>
+      <%= link_to "Dashboard", current_doctor%>
 
       <ul class="submenu menu vertical" data-submenu>
-        <li><%= link_to 'My Dasboard', current_doctor %></li>
+        <li><%= link_to 'My Dasboard', current_doctor, class: 'hide-for-large' %></li>
         <li><%= link_to 'Settings', edit_doctor_path(current_doctor), style: "border-bottom: 1px solid #F7F7F7"%></li>
 
 
