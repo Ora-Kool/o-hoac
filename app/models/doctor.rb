@@ -3,6 +3,7 @@ class Doctor < ApplicationRecord
   belongs_to :department
   has_many :appointments
   belongs_to :city
+  belongs_to :gender
 
   attr_accessor :remember_token
   before_save { self.doctors_name = doctors_name.downcase }
@@ -21,6 +22,9 @@ class Doctor < ApplicationRecord
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
   validates :doctors_name, presence: true
+
+  has_attached_file :profile_photo, styles: {large: "600x600", medium: "300x300>", thumnail: "100x100>" }, default_url: "/images/:style/missing.png"
+  validates_attachment_content_type :profile_photo, content_type: /\Aimage\/.*\z/
 
 
 

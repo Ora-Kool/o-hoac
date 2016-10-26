@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161016155351) do
+ActiveRecord::Schema.define(version: 20161019042926) do
 
   create_table "appointments", force: :cascade do |t|
     t.text     "reason"
@@ -61,8 +61,10 @@ ActiveRecord::Schema.define(version: 20161016155351) do
     t.datetime "profile_photo_updated_at"
     t.string   "gender"
     t.integer  "city_id"
+    t.integer  "gender_id"
     t.index ["city_id"], name: "index_doctors_on_city_id"
     t.index ["department_id"], name: "index_doctors_on_department_id"
+    t.index ["gender_id"], name: "index_doctors_on_gender_id"
   end
 
   create_table "genders", force: :cascade do |t|

@@ -12,14 +12,24 @@
        ">
     <div class="large-12 columns">
       <div style="text-align: center">
-        <h1>Log in</h1>
+
+        <h2 style="">Log in</h2>
+        <p style="letter-spacing: 2px; margin-top: -4px;">here if you are a doctor!</p>
       </div>
       <%= render "doctor_sessions/shared/d_form" %>
       <div>
-        <p>
-          New user? <%= link_to "Sign up now!", signup_path %>
-        </p>
-      </div>
+      <p>
+        New patient? <%= link_to "Sign up now!", signup_path %>
+      </p>
+    </div>
+    <div style="text-align: center">
+      <hr class="style-eight">
+      <p>
+       Log in as
+        <strong><%= link_to 'Patient', login_path %></strong>
+      </p>
+    </div>
+  </div>
     </div>
   </div>
 </div>

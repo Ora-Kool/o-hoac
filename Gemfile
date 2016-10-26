@@ -16,6 +16,8 @@ gem 'coffee-rails', '~> 4.2'
 # gem 'therubyracer', platforms: :ruby
 
 gem 'phonelib', '~> 0.6.5'
+gem 'bxslider-rails'
+gem 'jquery-slick-rails', '~> 1.6', '>= 1.6.0.2'
 
 gem 'will_paginate', '~> 3.1', '>= 3.1.3'
 gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.1'

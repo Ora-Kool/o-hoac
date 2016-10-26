@@ -16,8 +16,11 @@
 
                 <div class="image">
 
+                  <% if appointment.user.profile_photo_file_size == nil || appointment.user.gender.name.downcase == "male"%>
+                  <%= image_tag('male.png', alt: 'patient image')%>
+                  <%else%>
 
-                  <%= image_tag('doctor1.png', alt: 'patient image')%>
+                  <%end%>
 
                   <span class="title">
                          Patient Name: <strong><%= "#{appointment.user.first_name.capitalize} #{appointment.user.last_name.downcase}"%></strong>

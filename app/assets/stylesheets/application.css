@@ -13,6 +13,9 @@
  *= require_tree .
  *= require_self
  *= require jquery-ui
+ *= require bxslider
+ *= require slick
+ *= require slick-theme
  *= require foundation_and_overrides
 
  */

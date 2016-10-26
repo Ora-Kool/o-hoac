@@ -66,8 +66,9 @@ class DoctorsController < ApplicationController
   end
 
   def update_infos
-    params.require(:doctor).permit(:doctors_name,
-                                   :gender,
+    params.require(:doctor).permit(:doctors_name, 
+                                   :profile_photo,
+                                   :gender_id,
                                    :city_id,
                                    :speciality,
                                    :professional_details,

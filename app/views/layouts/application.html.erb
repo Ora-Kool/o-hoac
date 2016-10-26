@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "o-hoac.com" %></title>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
@@ -21,8 +21,28 @@
     
     <%= render 'page/shared/footer' %>
   <script>
-    $(function(){ $(document).foundation(); });
+    $(function(){ 
+      $(document).foundation();
+      $('.slider-items').slick({
+      dots: false,
+      autoplay: true,
+      autoplaySpeed: 3000,
+      mobileFirst: true,
+      arrows: false,
+      pauseOnHover: false,
+      fade: false,
+      cssEase: 'linear',
+   
+    });
 
+      $('.doctors').bxSlider({
+          auto: true,
+          autoControls: false,
+          captions: true,
+      });
+       });
+  
   </script>
+
   </body>
 </html>

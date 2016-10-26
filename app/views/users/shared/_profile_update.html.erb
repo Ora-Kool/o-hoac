@@ -8,7 +8,11 @@
       </div>
       <div class="large-5 medium-5 small-4 columns">
         <div id="target">
-            <%= image_tag('doctor.svg.png')%>
+        <% if @user.gender.name.downcase == "male" %>
+            <%= image_tag('male.png')%>
+                <%else%>
+            <%= image_tag('female.svg.png')%>
+            <%end%>
         </div>
       </div>
     </div>

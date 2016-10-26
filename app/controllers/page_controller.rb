@@ -11,5 +11,8 @@ class PageController < ApplicationController
   def faqs
   end
 
+  def sendme
+  end
+
 
 end

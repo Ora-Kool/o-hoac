@@ -3,6 +3,7 @@ class Appointment < ApplicationRecord
   belongs_to :doctor
   validates :reason, presence: true,  length: {maximum: 150 }
   validates :appt_time, presence: true
+  validates :appointment_token, presence: true, uniqueness: true
   validate :check_date
 
 

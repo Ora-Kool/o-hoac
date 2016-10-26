@@ -30,7 +30,7 @@ html,body { // for demo only
     font-size: 1.5rem;
 
     font-weight: 300;
-
+    z-index: 0;
 
   }
 
@@ -103,7 +103,7 @@ html,body { // for demo only
       background: rgba(235, 235, 235, 0.80);
       color: #0a0a0a;
       opacity: 10;
-      z-index: 4;
+      z-index: 1;
       width: 100%;
 
     }
@@ -119,7 +119,46 @@ html,body { // for demo only
     color: inherit;
     font-size: 30px;
   }
+  
 
+}
+
+.card-2 {
+
+  font-family: 'Roboto', sans-serif;
+
+  overflow: hidden;
+
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+
+  color: #272727;
+
+  border-radius: 2px;
+
+  margin-bottom: 20px;
+
+  .title {
+    line-height: 3rem;
+
+    font-size: 1.5rem;
+
+    font-weight: 300;
+    z-index: 0;
+
+  }
+  a {
+
+    color: #000000;
+
+    margin-right: 1.3rem;
+
+    transition: color 0.3s ease;
+
+    text-transform: uppercase;
+
+    text-decoration: none;
+
+  }
 }
 #profileN{
   color: #2980b9;

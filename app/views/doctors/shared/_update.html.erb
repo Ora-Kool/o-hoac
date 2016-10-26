@@ -1,6 +1,22 @@
 <%= form_for(@doctor ) do |f| %>
     <%= render 'users/shared/error_messages', object: @doctor%>
 
+    <div class="row">
+      <div class="large-7 medium-7 small-8 columns">
+        <%= f.label "Profile picture" %>
+        <%= f.file_field :profile_photo, id: 'photoselect'%>
+      </div>
+      <div class="large-5 medium-5 small-4 columns">
+        <div id="target">
+        <% if @doctor.gender.name.downcase == "male"%>
+            <%= image_tag('male.png')%>
+                <%else%>
+            <%= image_tag('female.svg.png')%>
+            <%end%>
+        </div>
+      </div>
+    </div>
+
     <%= f.label "user name  *(is used to log you in)" %>
     <%= f.text_field :doctors_name%>
 
@@ -16,7 +32,7 @@
     </div>
 
     <%= f.label :gender %>
-    <%= f.collection_select :gender, Gender.all, :id, :name , prompt: "Select gender"%>
+    <%= f.collection_select :gender_id, Gender.all, :id, :name , prompt: "Select gender"%>
 
     <%= f.label :phone_number %>
     <%= f.text_field :phone_number%>

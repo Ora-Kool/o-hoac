@@ -6,7 +6,16 @@
         <div class="card">
 
           <div class="image">
+           <% if @doctor.gender.name.downcase == "male" %>
+            <% if @doctor.profile_photo_file_size == nil %>
+            <%= image_tag('male.png', alt: @doctor.doctors_name, style: "border-radius: 150px; padding: 20px;")%>
+            <%else%>
+            <%= image_tag(@doctor.profile_photo.url(:medium), alt: @doctor.doctors_name)%>
+            <%end%>
+            <%else%>
             <%= image_tag('doctor.svg.png', alt: 'image')%>
+           <%end%>
+            
           </div>
 
           <div class="content">
