@@ -1,0 +1,14 @@
+<%= form_for(:session,  url: ohoac_administration_adminsesions_login_path) do |f| %>
+<%= f.label "email address" %>
+    <%= f.text_field :email %>
+
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+
+    <%= f.label :remember_me, class: "checkbox inline" do %>
+        <%= f.check_box :remember_me %>
+        <span>Remember me</span>
+    <%end%>
+
+    <%= f.submit "Login", class: "button large-5"%>
+<%end%>

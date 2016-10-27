@@ -1,9 +1,26 @@
 Rails.application.routes.draw do
   root 'page#home'
 
+  get '/ohoac/administration/adminsesions/login', to: 'admin_sesions#new'
+  post '/ohoac/administration/adminsesions/login', to: 'admin_sesions#create'
+  delete '/ohoac/administration/adminsesions/logout', to: 'admin_sesions#destroy'
+
+  get '/ohoac/administration/signup', to: 'admins#new'
+  post '/ohoac/administration/signup', to: 'admins#create'
+
+  get '/ohoac/administration/dashboard', to: 'admins#dashboard'
+
+  get '/ohoac/administration/dashboard/users/all', to: 'admins#users'
+  get '/ohoac/administration/dashboard/doctors/all', to: 'admins#doctors'
+
+
+
   get '/about', to: 'page#about'
   get '/terms', to: 'page#terms'
   get '/faqs', to: 'page#faqs'
+
+   get '/contact_us', to: 'contacts#new'
+   post '/contact_us', to: 'contacts#create'
 
 
   #user has the ability to sign up an account
@@ -25,7 +42,6 @@ Rails.application.routes.draw do
 
   #appointment
   get '/users/:user_id/doctors/:doctor_id/appointments/new',
-      constraints: { the_id: /[a-z0-9]{6}\-[a-z0-9]{6}/ },
       to: "appointments#new", as: 'schedule_appointment'
 
   resources :users, except: [:new, :create, :index] do
@@ -36,6 +52,7 @@ Rails.application.routes.draw do
 
   end
   resources :doctors, except: [:index]
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

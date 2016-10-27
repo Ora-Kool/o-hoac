@@ -5,7 +5,7 @@
     <%= f.text_field :name, placeholder: "john" %>
 
     <%= f.label :email %>
-    <%= f.email_field :email, placeholder: "johnmarkanty@gamil.com" %>
+    <%= f.email_field :email, placeholder: "johnmarkanty@gmail.com" %>
 
     <%= f.label :gender %>
     <%= f.collection_select :gender_id, Gender.all, :id, :name, prompt: 'Select gender' %>

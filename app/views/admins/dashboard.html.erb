@@ -1,0 +1,56 @@
+<%provide(:title, "Adminstrative Dashboard - O-HoAC") %>
+<div class="row row-top">
+<h2 style="text-align: center">
+	Welcome to adminstrative dashboard
+</h2>
+<hr>
+	<div class="large-6 columns">
+		<div class="card">
+
+                <div class="image">
+                <h1 style="text-align: center">
+                 	<%= link_to 'USERS',  ohoac_administration_dashboard_users_all_path%>
+                </h1>
+                </div>
+
+
+                <div class="action">
+                <p>
+                	Get to see all what users are doing here
+                </p>
+                <h1>
+                	<%= @users.count %>
+                </h1>
+                </div>
+               
+              </div>
+	</div>
+	<div class="large-6 columns">
+			
+		<div class="card">
+
+                <div class="image">
+               		<h1 style="text-align: center">
+                 	<%= link_to 'DOCTORS', ohoac_administration_dashboard_doctors_all_path%>
+                </h1>
+                </div>
+
+
+                <div class="action">
+
+                  <!--<a></a>-->
+                  <p>
+                  	Get to see all what doctors are doing
+                  </p>
+                  <h1>
+                  	<%= @doctors.count %>
+                  </h1>
+                
+
+                </div>
+                
+
+
+        </div>
+	</div>
+</div>

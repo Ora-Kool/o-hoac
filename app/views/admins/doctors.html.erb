@@ -1,0 +1,42 @@
+<%provide(:title, "All Doctors - O-HoAC") %>
+<div class="row row-top">
+	<h2 style="text-align: center">
+		All O-HoAC Doctors
+	</h2>
+	<hr>
+<div class="large-4 columns">
+		<h4>links</h4>
+		<hr>
+		<ul class="menu vertical">
+  			<li><%= link_to "DASHBOARD", ohoac_administration_dashboard_path %></li>
+  			<li><%= link_to "ALL USERS", ohoac_administration_dashboard_users_all_path %></li>
+		</ul>			
+	</div>
+	<div class="large-8 columns" style="margin-bottom: 50px">
+		<h3 style="text-align: center">list of doctors</h3>
+		<% if !@doctors.empty? %>
+		<table>
+		<tr>
+			<th>Full Names</th>
+			<th>Current Hospital</th>
+			<th>Mobile Contact</th>
+			<th>No. Of Appointments</th>
+		</tr>
+
+		<tr>
+			<% @doctors.each do |doctor| %>
+				<td><%= link_to "#{doctor.first_name} #{doctor.last_name}"%></td>
+				<td><%= doctor.current_hospital %></td>
+				<td><%= doctor.phone_number %></td>
+				<td><%= link_to "#{doctor.appointments.count}"%></td>
+			<%end%>
+		</tr>
+	
+		
+		</table>
+		<%else%>
+		<p>not here</p>
+		<%end%>
+	</div>
+
+</div>

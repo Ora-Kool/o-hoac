@@ -1,0 +1,25 @@
+<%= form_for(@contact, url: contact_us_path) do |f| %>
+<%= render 'users/shared/error_messages', object: @contact %>
+<div class="row">
+	<div class="large-6 columns">
+		<%= f.text_field :full_name, placeholder: "Your Name°" %>
+
+	</div>
+		<div class="large-6 columns">
+		<%= f.text_field :mobile, placeholder: "Phone Number" %>
+		</div>
+
+</div>
+
+
+	
+	<%= f.email_field :email, placeholder: "Email Address°" %>
+
+	<%= f.text_area	:message, size: '10x5' %>
+
+	<%=f.submit 'Send', class: 'button large-5' %>
+	
+
+
+
+<%end%>

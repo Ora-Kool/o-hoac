@@ -32,31 +32,48 @@
 
     </li>
     <%elsif logged_doctor_in?%>
-    <li class="has-submenu">
-    <%= link_to "Blood Banks", "#", class: 'inactive'%>
-      <ul class="submenu menu vertical" data-submenu>
+      <li class="has-submenu">
+      <%= link_to "Blood Banks", "#", class: 'inactive'%>
+        <ul class="submenu menu vertical" data-submenu>
 
-        <li><%= link_to "Which Hospital?", "#", class: 'in-active'%></li>
-        <li><%= link_to "Blood Donors", "#", class: 'in-active'%></li>
-      </ul>
-    </li>
-
-
-    <li class="has-submenu">
-
-      <%= link_to "Dashboard", current_doctor%>
-
-      <ul class="submenu menu vertical" data-submenu>
-        <li><%= link_to 'My Dasboard', current_doctor, class: 'hide-for-large' %></li>
-        <li><%= link_to 'Settings', edit_doctor_path(current_doctor), style: "border-bottom: 1px solid #F7F7F7"%></li>
+          <li><%= link_to "Which Hospital?", "#", class: 'in-active'%></li>
+          <li><%= link_to "Blood Donors", "#", class: 'in-active'%></li>
+        </ul>
+      </li>
 
 
-        <li><%= link_to 'Logout', signout_path, method: :delete %></li>
+      <li class="has-submenu">
 
-      </ul>
+        <%= link_to "Dashboard", current_doctor%>
 
-    </li>
+        <ul class="submenu menu vertical" data-submenu>
+          <li><%= link_to 'My Dasboard', current_doctor, class: 'hide-for-large' %></li>
+          <li><%= link_to 'Settings', edit_doctor_path(current_doctor), style: "border-bottom: 1px solid #F7F7F7"%></li>
 
+
+          <li><%= link_to 'Logout', signout_path, method: :delete %></li>
+
+        </ul>
+
+      </li>
+
+  <%elsif logged_admin_in? %>
+  <li class="has-submenu">
+
+        <%= link_to "#{current_admin.name.upcase}"%>
+
+        <ul class="submenu menu vertical" data-submenu>
+          <li><%= link_to "Dashboard", ohoac_administration_dashboard_path %></li>
+          <li><%= link_to 'Dashboard', ohoac_administration_dashboard_path, class: 'hide-for-large' %></li>
+          <li><%= link_to 'Doctors', ohoac_administration_dashboard_doctors_all_path , style: "border-bottom: 1px solid #F7F7F7"%></li>
+          <li><%= link_to 'Users', ohoac_administration_dashboard_users_all_path , style: "border-bottom: 1px solid #F7F7F7"%></li>
+
+
+          <li><%= link_to 'Logout', ohoac_administration_adminsesions_logout_path, method: :delete %></li>
+
+        </ul>
+
+      </li>
   <%else%>
 
     <li><%= link_to "Log in", login_path %></li>
