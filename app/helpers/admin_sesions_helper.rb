@@ -4,6 +4,13 @@ module AdminSesionsHelper
     session[:admin_id] = admin.id
   end
 
+   #remember a user in a session
+  def remember(admin)
+    admin.remember
+    cookies.permanent.signed[:admin_id] = admin.id
+    cookies.permanent[:remember_token] = admin.remember_token
+  end
+
   #returns true if the given user is the current user
   def current_admin?(admin)
     admin == current_admin
@@ -45,14 +52,5 @@ module AdminSesionsHelper
     @current_admin = nil
   end
 
-  #redirects to stored location or default
-  def redirect_back_or(default)
-    redirect_to(session[:forwarding_url] || default)
-    session.delete(:forwarding_url)
-  end
-
-  #store the url the user wanted to visit
-  def store_location
-    session[:forwarding_url] = request.original_url if request.get?
-  end
+  
 end

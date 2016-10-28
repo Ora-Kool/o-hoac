@@ -1,5 +1,5 @@
 class AdminsController < ApplicationController
-  before_action :logged_in, only: [:new, :dashboard, :users, :doctors]
+  before_action :logged_in_admin, only: [:new, :dashboard, :users, :doctors]
   #before_action :correct_admin, only: [:new, :dashboard, :users, :doctors]
   def new
   	@admin = Admin.new
@@ -19,6 +19,7 @@ class AdminsController < ApplicationController
   def dashboard
   	@users = User.all
   	@doctors = Doctor.all
+    @contacts = Contact.all
   end
 
   def users
@@ -29,6 +30,20 @@ class AdminsController < ApplicationController
   	@doctors = Doctor.all
   end
 
+  def appointments
+    @user = User.find(params[:user_id])
+    @appointments = @user.appointments.all
+  end
+
+  def contacts
+    @contacts = Contact.all
+  end
+
+  def all_appointments
+    @all_appointments = Appointment.all
+  end
+
+
   private 
   def admin_params
   	params.require(:admin).permit(:name,
@@ -38,9 +53,8 @@ class AdminsController < ApplicationController
   end
 
   #comfirm if the current logged in user
-  def logged_in
+  def logged_in_admin
     unless logged_admin_in?
-      store_location
       flash[:danger] = "Access denied."
       redirect_to root_path
     end

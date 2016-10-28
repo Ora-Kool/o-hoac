@@ -4,15 +4,18 @@
 		All O-HoAC Doctors
 	</h2>
 	<hr>
-<div class="large-4 columns">
-		<h4>links</h4>
-		<hr>
-		<ul class="menu vertical">
+<div class="row">
+	<div class="large-4 columns">
+
+		<ul class="menu">
   			<li><%= link_to "DASHBOARD", ohoac_administration_dashboard_path %></li>
-  			<li><%= link_to "ALL USERS", ohoac_administration_dashboard_users_all_path %></li>
+  			<li><%= link_to "ALL PATIENTS", ohoac_administration_dashboard_users_all_path %></li>
+  			<li><%= link_to "ALL MAILS", ohoac_administration_dashboard_messages_board_mails_all_path %></li>
+
 		</ul>			
 	</div>
-	<div class="large-8 columns" style="margin-bottom: 50px">
+</div>
+	<div class="large-12 columns" style="margin-bottom: 50px">
 		<h3 style="text-align: center">list of doctors</h3>
 		<% if !@doctors.empty? %>
 		<table>

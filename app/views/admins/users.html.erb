@@ -1,42 +1,44 @@
-<%provide(:title, "All Users - O-HoAC") %>
+<%provide(:title, "All Patients - O-HoAC") %>
 <div class="row row-top">
 <h2 style="text-align: center">
 	All O-HoAC Patients
 </h2>
 <hr>
-	<div class="large-4 columns">
-		<h4>links</h4>
-		<hr>
-		<ul class="menu vertical">
+<div class="row">
+<div class="large-5 columns">
+
+		<ul class="menu">
   			<li><%= link_to "DASHBOARD", ohoac_administration_dashboard_path%></li>
   			<li><%= link_to "ALL DOCTORS", ohoac_administration_dashboard_doctors_all_path %></li>
 		</ul>			
 	</div>
-	<div class="large-8 columns" style="margin-bottom: 50px">
-		<h3 style="text-align: center">list of users</h3>
+</div>
+	<div class="large-12 columns" style="margin-bottom: 50px">
+		<h3 style="text-align: center">list of patients</h3>
 		<% if !@users.empty? %>
 		<table>
 		<tr>
 			<th>Full Names</th>
+			<th>Profile Name</th>
 			<th>Email Address</th>
 			<th>Mobile Contact</th>
 			<th>No. Of Appointments</th>
 		</tr>
-
+	<% @users.each do |user| %>
 		<tr>
-			<% @users.each do |user| %>
+			
 				<td><%= link_to "#{user.first_name} #{user.last_name}"%></td>
+				<td><%= user.name %></td>
 				<td><%= user.email %></td>
 				<td><%= user.mobile_phone %></td>
-				<td><%= link_to "#{user.appointments.count}"%></td>
-			<%end%>
+				<td><%= link_to "#{user.appointments.count}", hoac_administration_users_appointments_path(user) %></td>
+			
 		</tr>
-	
+	<%end%>
 		
 		</table>
 		<%else%>
 		<p>not here</p>
 		<%end%>
 	</div>
-	
 </div>

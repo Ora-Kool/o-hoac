@@ -15,7 +15,8 @@
 	
 	<%= f.email_field :email, placeholder: "Email Address°" %>
 
-	<%= f.text_area	:message, size: '10x5' %>
+	<%= f.text_field :message_title, placeholder: "Message title" %>
+	<%= f.text_area	:message, size: '10x5', placeholder: "Your message (Maximum 1500 characters)" %>
 
 	<%=f.submit 'Send', class: 'button large-5' %>
 	

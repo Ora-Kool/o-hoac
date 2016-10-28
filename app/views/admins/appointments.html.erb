@@ -1,0 +1,48 @@
+<%provide(:title, "#{@user.first_name} Appointments - O-HoAC") %>
+<div class="row row-top">
+	<h2 style="text-align: center">
+		All <%= "#{@user.first_name.upcase} #{@user.last_name.upcase}" %>  Appointments
+	</h2>
+		<hr>
+		<div class="row">
+			<div class="large-6 columns">
+				<ul class="menu">
+  					<li><%= link_to "DASHBOARD", ohoac_administration_dashboard_path %></li>
+  					<li><%= link_to "ALL DOCTORS", ohoac_administration_dashboard_doctors_all_path %></li>
+  					<li><%= link_to "ALL USERS", ohoac_administration_dashboard_users_all_path %></li>	
+				</ul>			
+			</div>
+		</div>
+	<div class="large-12 columns" style="margin-bottom: 50px">
+		<h3 style="text-align: center">list of <%= "#{@user.first_name.downcase} #{@user.last_name}"%> appointments</h3>
+		<% if !@appointments.empty? %>
+		<table>
+		<tr>
+			<th>Appointment Reason</th>
+			<th>Appointment Date</th>
+			<th>Doctor's Name</th>
+			<th>Department</th>
+		</tr>
+<% @appointments.each do |appointment| %>
+		<tr>
+			<div class="row">
+				<div class="large-12 columns">
+				<td><%= appointment.reason %></td>
+				<td><%= appointment.apt_date.strftime("%B %d, %Y") %></td>
+				<td><%= appointment.doctor.doctors_name.capitalize %></td>
+				<td><%= appointment.doctor.department.department_name%></td>
+				</div>
+			</div>
+			
+				
+			
+		</tr>
+	<%end%>
+		
+		</table>
+		<%else%>
+		<p>Nothing in here</p>
+		<%end%>
+	</div>
+
+</div>
