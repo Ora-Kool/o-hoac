@@ -17,12 +17,12 @@
 
     <%= yield %>
 
-
-    
     <%= render 'page/shared/footer' %>
   <script>
+
+    $(document).foundation();
     $(function(){ 
-      $(document).foundation();
+
       $('.slider-items').slick({
       dots: false,
       autoplay: true,
@@ -32,6 +32,8 @@
       pauseOnHover: false,
       fade: false,
       cssEase: 'linear',
+
+
    
     });
 
@@ -40,9 +42,10 @@
           autoControls: false,
           captions: true,
       });
-      
+
+
   });
-  
+
   </script>
 
   </body>

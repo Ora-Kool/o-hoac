@@ -46,7 +46,7 @@ module DoctorSessionsHelper
 
   #log out the current user
   #this method is used in session controller, to delete users session
-  def sign_out
+  def sign_out_doctor
     forget(current_doctor)
     session.delete(:doctor_id)
     @current_doctor = nil

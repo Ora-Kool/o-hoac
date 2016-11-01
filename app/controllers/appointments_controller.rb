@@ -1,11 +1,10 @@
 class AppointmentsController < ApplicationController
   before_action :find_params, only: [:new, :create]
-  before_action :logged_in, only: [:new, :create, :destroy, :show, :edit, :update]
-  before_action :correct_user, only: [:new, :create, :destroy, :show, :edit, :update]
+  #before_action :logged_in, only: [:new, :create, :destroy, :show, :edit, :update]
 
-def index
-  redirect_to 'new'
-end
+#def index
+  #redirect_to 'new'
+#end
 
   def new
     @appointment = Appointment.new

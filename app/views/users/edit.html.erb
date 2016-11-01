@@ -1,12 +1,13 @@
 <%provide(:title, 'Edit info')%>
-<%provide(:button_text, "Save changes") %>
+<%provide(:button_text, "Done!") %>
 <div class="row row-top">
 <div class="large-6 columns">
   <h2 style="text-decoration: underline">
   OHoAC
   </h2>
-  <p>We have a policy to make the world know that<br/>
-  we are about to change what they think about us.</p>
+  <p style="letter-spacing: 2px">
+      Please take a few minutes of your time to complete the registration. We would be happy if you fill in the form given your picture, first name, last name and your date of birth so that your doctors will best understand you and attend to you properly.
+  </p>
 </div>
   <div class="large-6 columns"
        style="
@@ -20,7 +21,8 @@
        ">
   <div class="large-12 columns">
     <div style="text-align: center">
-      <h1>Update your profile</h1>
+      <h1>Complete registration</h1>
+      <hr>
     </div>
     <%= render 'users/shared/profile_update' %>
   </div>

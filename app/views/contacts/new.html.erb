@@ -1,10 +1,10 @@
-<%provide(:title, "Contact us - O-HoAC") %>
+<%provide(:title, "Contact Us - O-HoAC") %>
 <div class="row row-top">
 	<div class="large-12" style="text-align:center">
-		<h2>
-		Contact Us
-			<hr>
+		<h2 id="notifier">
+		Contact Us	
 		</h2>
+		<hr>
 	</div>
 	<div class="large-6 columns">
 	<h3>Our Details</h3>
@@ -30,9 +30,10 @@
 	
 		<div class="row">
 			<div class="large-10 large-offset-2 columns">
-			<h4 style="margin-bottom: -3px">Drop us a line.</h4>
-			<p>
-			if you are a doctor who wants to be onboard.
+			<h4 style="margin-bottom: -3px; text-decoration: underline">Drop us a line.</h4>
+			<p style="letter-spacing: 2px">
+			if you are a doctor who wants to be onboard.<br>
+			<strong>We will get back to you within 24hours</strong>
 
 			</p>
 				<%= render 'contacts/shared/contact_form' %>

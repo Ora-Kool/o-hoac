@@ -1,0 +1,36 @@
+<%provide(:title, "Read mail - O-HoAC") %>
+<div class="row row-top">
+	<h2 style="text-align: center">
+		Read inbox mail
+	</h2>
+		<hr>
+		<div class="row">
+			<div class="large-6 columns">
+				<ul class="menu">
+  					<li><%= link_to "DASHBOARD", ohoac_administration_dashboard_path %></li>
+  					<li><%= link_to "ALL DOCTORS", ohoac_administration_dashboard_doctors_all_path %></li>
+  					<li><%= link_to "ALL USERS", ohoac_administration_dashboard_users_all_path %></li>	
+  					<li><%= link_to "ALL MAILS", ohoac_administration_dashboard_messages_board_mails_all_path %></li>	
+				</ul>			
+			</div>
+		</div>
+	<div class="large-12 columns" style="margin-bottom: 50px">
+		<h3 style="text-align: center">list of mails > mail id <%= @selected.id %></h3>
+		<hr>
+
+		<div style="background-color: #ffffff; padding: 10px;">
+			<strong>From: </strong><a><%= @selected.email %></a><br>
+			<strong>Subject:</strong><br>
+			<h4><%= @selected.message_title %></h4>
+			<div class="row">
+			<div class="large-4 columns">
+			<strong>Message:</strong><br>
+			<p>
+			<%= @selected.message %>
+			</p>
+			</div>
+			</div>
+		</div>
+
+	</div>
+</div>

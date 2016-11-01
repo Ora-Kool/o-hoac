@@ -51,7 +51,30 @@
                     <li>In which hospital is the doctor</li>
                   </ul>
                  
-                  <%= link_to "New", ohoac_administration_dashboard_doctor_new_path %>
+                  <%= link_to "New Doctor", ohoac_administration_dashboard_doctor_new_path %>
+                  <a data-open="form">Add Department</a>
+                  <div class="reveal" id="form" data-reveal>
+                        <h1>Add new department</h1>
+                          <div class="row">
+                          <div class="large-5 columns">
+                            <% @departments.each do |department| %>
+                              <a id="<%=department.id %>"><%=department.department_name %></a> <span> | </span><%= link_to 'remove',ohoac_administration_dashboard_department_selected_remove_department_path(department.id), method: :delete, data: { confirm: 'Are you sure?'} %><br>
+                            <%end%>
+                          </div>
+                            <div class="large-7 columns">
+                              <%= form_for(@department, url: ohoac_administration_dashboard_department_add_new_path) do |f| %>
+                                <%= render "users/shared/error_messages", object: @department %>
+                                <%= f.label :department_name %>
+                                <%= f.text_field :department_name, placeholder: 'enter department name here' %>
+                                <%= f.submit 'add', class: 'button large-5' %>
+                              <%end%>
+                            </div>
+                          </div>
+                        <button class="close-button" data-close aria-label="Close modal" type="button">
+                         <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                  <a>Add City </a>
 
                 </div>
                 

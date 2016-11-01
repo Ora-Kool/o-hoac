@@ -1,4 +1,4 @@
-module AdminSesionsHelper
+module AdminSessionsHelper
 	#log a given user
   def log_in_admin(admin)
     session[:admin_id] = admin.id

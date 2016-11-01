@@ -1,7 +1,7 @@
-<%provide(:title, "Messages Board - O-HoAC") %>
+<%provide(:title, "All Inbox Mails - O-HoAC") %>
 <div class="row row-top">
 	<h2 style="text-align: center">
-		All Inbox mails
+		Messages Board
 	</h2>
 		<hr>
 		<div class="row">
@@ -15,7 +15,7 @@
 		</div>
 	<div class="large-12 columns" style="margin-bottom: 50px">
 		<h3 style="text-align: center">list of mails</h3>
-		<% if !@contacts.empty? %>
+		
 		<table>
 		<tr>
 			<th>Full Names</th>
@@ -24,25 +24,40 @@
 			<th>Message</th>
 		</tr>
 <% @contacts.each do |contact| %>
-		<tr>
+		<tr id="contact_id_<%= contact.id %>">
 			<div class="row">
 				<div class="large-12 columns">
 				<td><%= contact.full_name %></td>
 				<td><%= contact.email %></td>
 				<td><%= contact.mobile %></td>
-				<td><%= link_to "read" %></td>
+				<% if contact.read_message %>
+				<td><span style="color: #000000"> <%= link_to 'Old', ohoac_administration_dashboard_messages_board_mails_all_selected_read_path(contact.id)%></span> <span> | </span><a data-open="mail_<%="#{contact.id}"%>" style="color: #000000;">unread</a><span> | </span><%= link_to 'delete', ohoac_administration_dashboard_messages_board_mails_all_remove_path(contact.id), method: :delete, data: { confirm: 'Are you sure? '}, remote: true, style: "color: red;"%></td>
+				 <%else%>
+				 <td>
+				 	<%= link_to 'Recent', ohoac_administration_dashboard_messages_board_mails_all_selected_read_path(contact.id),
+				 id: "mail_#{contact.id}"%><span> | </span><%= link_to 'unread'%><span> | </span><%= link_to 'delete', ohoac_administration_dashboard_messages_board_mails_all_remove_path(contact.id), method: :delete, data: { confirm: 'Are you sure? '}, remote: true%>
+				 </td>
+				 <%end%>
 				</div>
 			</div>
 			
-				
+				<div class="reveal" id="mail_<%="#{contact.id}"%>" data-reveal>
+  				<h3>
+  					<strong><%= contact.message_title %></strong>
+  					<hr>
+  				</h3>
+  				<p class="lead"><%= contact.message %></p>
+  				<button class="close-button" data-close aria-label="Close modal" type="button">
+    				<span aria-hidden="true">&times;</span>
+  				</button>
+		</div>
 			
 		</tr>
+		
 	<%end%>
 		
 		</table>
-		<%else%>
-		<p>Nothing in here</p>
-		<%end%>
+		
 	</div>
 
 </div>

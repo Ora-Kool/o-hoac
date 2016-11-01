@@ -3,9 +3,16 @@
 
 <div class="row row-top">
   <div class="large-4 columns">
+    
+    <h2>About Dr. <%= @doctor.first_name %></h2>
+    <p>
+      <%= @doctor.professional_details %>
+    </p>
+
     <h2 style="color: #d50000; text-decoration: underline">NOTE!!</h2>
     <ol>
       <li>No appointment will be approved if appointment date is less than <strong><%= Date.today.strftime("%B %d, %Y")%></strong>.</li>
+
     </ol>
 
   </div>

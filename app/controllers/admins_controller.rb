@@ -1,5 +1,7 @@
 class AdminsController < ApplicationController
-  before_action :logged_in_admin, only: [:new, :dashboard, :users, :doctors]
+  before_action :logged_in_admin, only: [:new, :create, :contacts, :dashboard,
+   :users, :new_doctor, :create_doctor, :doctors, :destroy_message, :read,
+  ]
   #before_action :correct_admin, only: [:new, :dashboard, :users, :doctors]
 
   def new
@@ -21,6 +23,10 @@ class AdminsController < ApplicationController
   	@users = User.all
   	@doctors = Doctor.all
     @contacts = Contact.all
+    @departments = Department.all
+    @department = Department.new
+    @city = City.new
+
   end
 
   def users
@@ -44,6 +50,11 @@ class AdminsController < ApplicationController
     @doc = Doctor.new
   end
 
+  def read
+     @selected = Contact.find_by(id: params[:id])
+     @selected.seen
+  end
+
   def create_doctor
     @doc = Doctor.new(doctors_params)
     if @doc.save
@@ -52,6 +63,34 @@ class AdminsController < ApplicationController
     else
       render 'new_doctor'
     end
+  end
+
+  def create_department
+    @department = Department.new(department_params)
+    if @department.save
+      flash[:success] = "Department added successfully!"
+       redirect_to ohoac_administration_dashboard_path
+      else
+        flash[:error] = 'Department not added!'
+        redirect_to ohoac_administration_dashboard_path
+    end   
+  end
+  def remove_department
+    @department = Department.find_by(params[:department_id])
+    @department.destroy
+    flash[:success] = "Department #{@department.id} has being removed!"
+    redirect_to ohoac_administration_dashboard_path
+  end
+
+  def destroy_message
+      @message = Contact.find_by(params[:contact_id])
+      @message.destroy
+      #flash[:success] = "Mail successfully removed!."
+      respond_to do |format|
+        format.html { redirect_to ohoac_administration_dashboard_messages_board_mails_all_path }
+        format.js
+      end
+
   end
 
 
@@ -66,9 +105,16 @@ class AdminsController < ApplicationController
   end
 
   def doctors_params
-    params.require(:doctor).permit(:doctors_name, 
+    params.require(:doctor).permit(:doctors_name,
+                                   :city_id,
+                                   :department_id,
+                                   :gender_id,
                                    :password,
                                    :password_confirmation)
+  end
+
+  def department_params
+    params.require(:department).permit(:department_name)
   end
 
   #comfirm if the current logged in user

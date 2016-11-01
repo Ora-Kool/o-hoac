@@ -1,5 +1,5 @@
 class ContactsController < ApplicationController
-    def new
+  def new
   	@contact = Contact.new
   end
 
@@ -7,9 +7,13 @@ class ContactsController < ApplicationController
   	@contact = Contact.new(contact_params)
   	if @contact.save
   		flash[:success] = "Message sent!."
-  		redirect_to root_path	
+      respond_to do |format|
+        format.html { redirect_to contact_us_path }
+        format.js
+    end
+  		
   	else
-  		render 'new'
+      render 'new' 
   	end
   end
 

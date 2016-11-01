@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   root 'page#home'
 
-  get '/ohoac/administration/adminsesions/login', to: 'admin_sesions#new'
-  post '/ohoac/administration/adminsesions/login', to: 'admin_sesions#create'
-  delete '/ohoac/administration/adminsesions/logout', to: 'admin_sesions#destroy'
+  get '/ohoac/administration/adminsessions/login', to: 'admin_sessions#new'
+  post '/ohoac/administration/adminsessions/login', to: 'admin_sessions#create'
+  delete '/ohoac/administration/adminsessions/logout', to: 'admin_sessions#destroy'
 
   get '/ohoac/administration/signup', to: 'admins#new'
   post '/ohoac/administration/signup', to: 'admins#create'
@@ -14,9 +14,13 @@ Rails.application.routes.draw do
   get '/ohoac/administration/dashboard/users/:user_id/user_appointments', to: 'admins#user_appointments', as: '/ohoac/administration/users/appointments'
   get '/ohoac/administration/dashboard/doctors/all', to: 'admins#doctors'
   get '/ohoac/administration/dashboard/messages_board/mails/all', to: 'admins#contacts'
+  get '/ohoac/administration/dashboard/messages_board/mails/all/selected/read/:id', to: 'admins#read', as: '/ohoac/administration/dashboard/messages_board/mails/all/selected/read/'
+  delete '/ohoac/administration/dashboard/messages_board/mails/all/contacts/:contact_id', to: 'admins#destroy_message', as: '/ohoac/administration/dashboard/messages_board/mails/all/remove'
   get '/ohoac/administration/dashboard/doctor/new', to: 'admins#new_doctor'
   post '/ohoac/administration/dashboard/doctor/new', to: 'admins#create_doctor'
+  post '/ohoac/administration/dashboard/department/new', to: 'admins#create_department', as: '/ohoac/administration/dashboard/department/add_new'
 
+  delete '/ohoac/administration/dashboard/department/selected/remove/:department_id', to: 'admins#remove_department', as: '/ohoac/administration/dashboard/department/selected/remove_department'
 
 
   get '/about', to: 'page#about'
@@ -50,12 +54,13 @@ Rails.application.routes.draw do
 
   resources :users, except: [:new, :create, :index] do
     resources :doctors, except: [:index, :create, :edit, :new, :show, :update, :destroy] do
-      resources :appointments, except: [:new]
+      resources :appointments, except: [:new, :index]
 
     end
 
   end
   resources :doctors, except: [:index]
+
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

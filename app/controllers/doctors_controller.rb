@@ -10,7 +10,7 @@ class DoctorsController < ApplicationController
     if params[:current_date].blank?
       @doctor = Doctor.find_by(id: params[:id])
       @users = User.all
-      @appointments = @doctor.appointments.all
+      @appointments = @doctor.appointments.where(doctor_id: @doctor.id)
       #@apps = @doctor.appointments.all
      #@appointments_by_date = @apps.group_by(&:apt_date)
     #@date = params[:date] ? Date.parse(params[:date])  : Date.today

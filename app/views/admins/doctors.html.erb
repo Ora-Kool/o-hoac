@@ -21,20 +21,22 @@
 		<table>
 		<tr>
 			<th>Full Names</th>
+			<th>Profile Names</th>
 			<th>Current Hospital</th>
 			<th>Mobile Contact</th>
 			<th>No. Of Appointments</th>
 		</tr>
-
+      <% @doctors.each do |doctor| %>
 		<tr>
-			<% @doctors.each do |doctor| %>
+
 				<td><%= link_to "#{doctor.first_name} #{doctor.last_name}"%></td>
+				<td><%= doctor.doctors_name %></td>
 				<td><%= doctor.current_hospital %></td>
 				<td><%= doctor.phone_number %></td>
 				<td><%= link_to "#{doctor.appointments.count}"%></td>
-			<%end%>
+
 		</tr>
-	
+      <%end%>
 		
 		</table>
 		<%else%>

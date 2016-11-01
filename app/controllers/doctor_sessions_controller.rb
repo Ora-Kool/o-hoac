@@ -18,7 +18,7 @@ class DoctorSessionsController < ApplicationController
   end
 
   def destroy
-    sign_out if logged_doctor_in?
+    sign_out_doctor if logged_doctor_in?
     redirect_to(root_path)
   end
 end

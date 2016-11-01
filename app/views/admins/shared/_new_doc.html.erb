@@ -2,9 +2,21 @@
 <%= render 'users/shared/error_messages', object: @doc %>
 <%= f.label :doctors_name %>
 <%= f.text_field :doctors_name, placeholder: 'doctors name' %>
-<%= f.password_field :password, placeholder: 'password' %>
+    <%= f.collection_select :city_id, City.all, :id, :city_name, prompt: "Select doctor's city"%>
+    <%= f.collection_select :department_id, Department.all, :id, :department_name, prompt: "Select doctor's department"%>
+    <%= f.collection_select :gender_id, Gender.all, :id, :name, prompt: "Select doctor's gender"%>
+
+    <%= f.password_field :password, placeholder: 'password' %>
 <%= f.password_field :password_confirmation, placeholder: 'password confirmation' %>
 
-<%= f.submit 'Create', class: 'button large-12' %>
+<div class="row">
+	<div class="large-8 columns">
+		<%= f.submit 'Create', class: 'button large-12' %>
+	</div>
+	<div class="large-4 columns">
+		<%= link_to "Destroy", ohoac_administration_dashboard_path, class: 'button alert large-12' %>
+	</div>
+</div>
+
 
 <%end%>

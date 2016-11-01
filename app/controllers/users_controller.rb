@@ -27,9 +27,9 @@ class UsersController < ApplicationController
     if @user.save
       #login this user when credentials are valid
       log_in_user(@user)
-      flash[:success] = "Welcome to the O-H-O"
+      #flash[:success] = "Welcome to the O-HoAC"
       #redirect_to(edit_user_path(@user))
-      redirect_to(@user)
+      redirect_to edit_user_path(current_user)
       else
       render 'new'
     end
@@ -42,7 +42,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_update)
-      flash[:success] = "Profile updated successful!"
+      flash[:success] = "Welcome to O-HoAC"
       redirect_to @user
     else
       render 'edit'
@@ -66,15 +66,9 @@ class UsersController < ApplicationController
   #to be updated later
   def user_update
     params.require(:user).permit(:profile_photo,
-                                 :name,
                                  :first_name,
                                  :last_name,
-                                 :gender_id,
-                                 :mobile_phone,
-                                 :city_id,
-                                 :dob,
-                                 :password,
-                                 :password_confirmation)
+                                 :dob)
   end
 
   #comfirm if the current logged in user

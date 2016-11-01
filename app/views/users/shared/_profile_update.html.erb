@@ -17,10 +17,6 @@
       </div>
     </div>
 
-
-    <%= f.label 'user name' %>
-    <%= f.text_field :name%>
-
     <div class="row">
         <div class="large-6 columns">
             <%= f.label :first_name %>
@@ -32,30 +28,11 @@
         </div>
     </div>
 
-     <%= f.label :gender %>
-     <%= f.collection_select :gender_id, Gender.all, :id, :name, prompt: "Select gender"%>
-
-      <%= f.label :email %>
-    <%= f.email_field :email%>
-
-    <%= f.label :mobile_phone %>
-    <%= f.phone_field :mobile_phone %>
-
-   
-
-    <%= f.label :current_city %>
-    <%= f.collection_select :city_id, City.all, :id, :city_name, prompt: 'Select city' %>
-
+    
     <%= f.label "Date Of Birth" %>
     <%= f.date_field :dob, placeholder: "yyyy-mm-dd" %>
 
-  
-
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-
-    <%= f.label :password_confirmation, "Confirmation" %>
-    <%= f.password_field :password_confirmation %>
-
-    <%= f.submit yield(:button_text), class: "button columns" %>
+    <div style="text-align: center">
+    <%= f.submit yield(:button_text), class: "button large-5" %>
+    </div>
 <% end %>
