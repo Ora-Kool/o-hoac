@@ -1,6 +1,9 @@
 <% flash.each do |message_type, message| %>
-    <div class="<%= message_type %>">
-      <p><%= message %></p>
-    </div>
+    <div class="callout <%=message_type%>" data-closable>
+  		<button class="close-button" data-close>&times;</button>
+  		<i class="float-left">OHOAC</i>
+  		<p><%= message %>. <i style="color: ##FFFFFF; font-size: 12px">close me at the top right corner</i></p>
+	</div>
 <% end %>
+
 

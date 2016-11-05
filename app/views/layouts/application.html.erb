@@ -12,12 +12,8 @@
   </head>
 
   <body>
-    <%= render 'page/shared/header'%>
-    <%= render 'layouts/shared/alerts'%>
-
-    <%= yield %>
-
-    <%= render 'page/shared/footer' %>
+    <%= render "layouts/shared/off-canvas" %>
+    
   <script>
 
     $(document).foundation();
@@ -42,7 +38,19 @@
           autoControls: false,
           captions: true,
       });
-
+$('#photoselect').on('change', function(event) {
+        var files = event.target.files;
+        var image = files[0]
+        var reader = new FileReader();
+        reader.onload = function(file) {
+            var img = new Image();
+            console.log(file);
+            img.src = file.target.result;
+            $('#target').html(img);
+        }
+        reader.readAsDataURL(image);
+        console.log(files);
+    });
 
   });
 

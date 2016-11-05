@@ -22,11 +22,11 @@
 
     <div class="row">
       <div class="large-6 columns">
-        <%= f.label :first_name %>
+        <%= f.label "first name *(required)" %>
         <%= f.text_field :first_name%>
       </div>
       <div class="large-6 columns">
-        <%= f.label :last_name %>
+        <%= f.label "last name *(required)" %>
         <%= f.text_field :last_name%>
       </div>
     </div>
@@ -37,13 +37,13 @@
     <%= f.label :phone_number %>
     <%= f.text_field :phone_number%>
 
-    <%= f.label 'City'%>
+    <%= f.label 'City *(required)'%>
     <%= f.collection_select :city_id, City.all, :id, :city_name, prompt: "Select your city"%>
 
-    <%= f.label :current_hospital %>
+    <%= f.label 'current hospital *(required)' %>
     <%= f.text_field :current_hospital%>
 
-    <%= f.label :speciality %>
+    <%= f.label 'speciality *(required)' %>
     <%= f.text_field :speciality%>
 
     <%= f.label :working_hours %>
@@ -77,7 +77,7 @@
 
 
 
-    <%= f.label :professional_details %>
+    <%= f.label 'professional details *(required)'%>
     <%= f.text_area :professional_details, class: 'profdet'%>
 
     <div class="row">

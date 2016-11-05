@@ -42,7 +42,7 @@
 	</div>
 
 	<div class="large-7 columns">
-		<h4 style="letter-spacing: 2px;">Medical Services</h4>
+		<h4 style="letter-spacing: 2px;">Medical Services For Appointments</h4>
 		<p>
 Access to this system is permitted to authorised users <strong>ONLY</strong>. Unauthorised attempts are considered a criminal offence and could be prosecuted.
 Please read the <%= link_to "terms of use", terms_path%> and the information about your privacy, which apply to this website.
@@ -80,13 +80,16 @@ Please read the <%= link_to "terms of use", terms_path%> and the information abo
  <div class="large-12" style="margin-top: -20px;">
  <div class="row">
  		<div class="large-6 columns">
- 			<h4 style="letter-spacing: 4px">WHAT'S INSIDE</h4>
- 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
- 				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
- 				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
- 				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
- 				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
- 				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+ 			<h4 style="letter-spacing: 4px">
+ 					WHAT'S INSIDE
+ 					
+ 			</h4>
+ 			<div class="large-6">
+ 						<hr>
+ 					</div>
+ 				<p>
+ 					Getting to know much about what our services are, users/patients needs to open an account by <strong>signing up</strong>. The registration process doesn't take up to 2 minutes of your time. when done, you will have the possiblity of seeing different specialist that you can arrange an appointment with depending on which doctor you want to see.
+ 				</p>
  		</div>
  	<div class="large-6 columns">
  		<p>
@@ -105,6 +108,9 @@ Please read the <%= link_to "terms of use", terms_path%> and the information abo
  	</div>
  	<div class="large-6 columns">
  	 <h3>24 Hour Convenience.</h3>
+ 	 <div class="large-8">
+ 						<hr>
+ 	 </div>
  		<p>Scheduling appointments over the phone 
  		usually requires an individual to phone in during 
 		office hours, as few facilities offer round the clock phone 
@@ -131,10 +137,9 @@ Please read the <%= link_to "terms of use", terms_path%> and the information abo
  			</h2>
  			<div class="o-hoac_doctors">
  				<ul class="doctors">
- 					<li><%=image_tag('male.png')%></li>
- 					<li><%=image_tag('female.svg.png')%></li>
- 					<li><%=image_tag('male.png')%></li>
- 					<li title="Doctor Mabian"><%=image_tag('logo.png')%></li>
+ 				<% @doctors.each do |doctor| %>
+ 					<li><%=image_tag(doctor.profile_photo.url(:large))%></li>
+ 				<%end%>
  				</ul>
  			</div>
  		</div>

@@ -1,19 +1,19 @@
-.success{
+.secondary{
   text-align: center;
-  border-radius: 4px;
+  border-radius: 1px;
   position: relative;
   z-index: 4;
  
   top: 0;
   margin-bottom: -2.2rem;
 }
-.success > p{
+.secondary > p{
   padding-top: 10px;
-  color: #EFEFEF;
+  color: #0277bd;
   font-size: 30px;
 
 }
-.danger{
+.alert{
   text-align: center;
   border-radius: 4px;
   position: relative;
@@ -22,13 +22,13 @@
   top: 0;
 }
 
-.danger > p{
+.alert > p{
   padding-top: 10px;
   color: #d50000;
   font-size: 30px;
 }
 
-.error{
+.alert{
   text-align: center;
   border-radius: 4px;
   position: relative;
@@ -37,7 +37,7 @@
   top: 0;
   margin-bottom: -2.2rem;
 }
-.error > p{
+.alert > p{
   padding-top: 10px;
   color: #d50000;
   font-size: 30px;

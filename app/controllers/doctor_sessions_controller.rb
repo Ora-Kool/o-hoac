@@ -5,13 +5,13 @@ class DoctorSessionsController < ApplicationController
   def create
     doctor = Doctor.find_by(doctors_name: params[:session][:doctors_name].downcase)
     if doctor && doctor.authenticate(params[:session][:password])
-      flash[:success] = "Welcome back!"
+      flash[:secondary] = "Welcome back!"
       log_in_doctor(doctor)
       params[:session][:remember_me] == '1' ? remember(doctor) : forget(doctor)
       redirect_back_or(doctor)
 
     else
-      flash.now[:danger] = 'Sorry! Invalid name/password combination'
+      flash.now[:alert] = 'Sorry! Invalid name/password combination'
       render 'new'
     end
 

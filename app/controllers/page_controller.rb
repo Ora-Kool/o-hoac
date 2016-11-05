@@ -1,5 +1,6 @@
 class PageController < ApplicationController
   def home
+  	@doctors = Doctor.all
   end
 
   def about

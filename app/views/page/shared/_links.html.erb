@@ -56,6 +56,11 @@
         </ul>
 
       </li>
+      <li>
+        <a class="fi-magnifying-glass" data-open="exampleModal1"></a>
+      </li>
+
+
 
   <%elsif logged_admin_in? %>
   <li class="has-submenu">
@@ -81,6 +86,15 @@
     <li><%= link_to "Sign up", signup_path%></li>
 
 <%end%>
+
+<div class="reveal" id="exampleModal1" data-reveal>
+  <h1>Search</h1>
+  <p class="lead">what do you want me to search?</p>
+  <p>I'm a cool paragraph that lives inside of an even cooler modal. Wins!</p>
+  <button class="close-button" data-close aria-label="Close modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
 
 
 

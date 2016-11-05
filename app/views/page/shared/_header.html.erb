@@ -1,12 +1,17 @@
 
-<div class="title-bar" data-responsive-toggle="main-menu" data-hide-for="medium">
+<!--<div class="title-bar" data-responsive-toggle="main-menu" data-hide-for="medium">
 
   <button class="menu-icon" type="button" data-toggle></button>
 
   <div class="title-bar-title">
     <span>Menu</span>
   </div>
-
+</div>-->
+<div class="title-bar" data-responsive-toggle="main-menu" data-hide-for="medium">
+  <div class="title-bar-left">
+    <button class="menu-icon" type="button" data-open="offCanvas"></button>
+    <span class="title-bar-title">O-HoAC</span>
+  </div>
 </div>
 
 
@@ -15,12 +20,16 @@
   <div class="top-bar-left">
 
     <ul class="dropdown menu" data-dropdown-menu>
-
-      <li class="menu-text"><%=link_to "OHoAC", root_path%></li>
+      <div class="title-bar-left" style="padding: 10px">
+        <button class="menu-icon has-tip" data-tooltip aria-haspopup="true" type="button" data-open="offCanvas"
+        data-disable-hover="false" tabindex="1" title="Display sub-menus" ></button>
+        <span class="title-bar-title">O-HoAC</span>
+    </div>
+     <!-- <li class="menu-text"><span class="menu-icon" type=""></span><a class="title-bar-title">O-HoAC</a></li>-->
       <!--<li class="menu-text"><%=link_to image_tag('logo.png'), root_path%></li>-->
 
       <% if logged_doctor_in? %>
-          <li class="has-submenu">
+          <!--<li class="has-submenu">
 
             <%= link_to 'Filter Appointments', '#', class: 'default' %>
 
@@ -29,7 +38,7 @@
               <li><%= link_to "By Today's Date", doctor_path(current_date: Date.today, id: current_doctor) %></li>
             </ul>
 
-          </li>
+          </li>-->
       <%end%>
 
     </ul>

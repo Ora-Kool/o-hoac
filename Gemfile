@@ -17,6 +17,8 @@ gem 'coffee-rails', '~> 4.2'
 
 gem 'phonelib', '~> 0.6.5'
 
+gem 'foundation-icons-sass-rails'
+
 gem 'bxslider-rails'
 gem 'jquery-slick-rails'
 

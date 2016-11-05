@@ -40,7 +40,11 @@ $menu-background: #2980b9;
       a {
 
         color: #fff;
+      }
 
+      a:hover{
+        background-color: inherit;
+        border-bottom: 1px solid  #fff
       }
 
     }

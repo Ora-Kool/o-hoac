@@ -1,6 +1,6 @@
 /**
  * Created by Etinge Mabian on 15/10/2016.
- */
+
 $(function() {
     $('#photoselect').on('change', function(event) {
         var files = event.target.files;
@@ -16,3 +16,4 @@ $(function() {
         console.log(files);
     });
 });
+ */
